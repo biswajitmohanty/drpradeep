@@ -1,0 +1,43 @@
+import type { Metadata } from "next";
+import { Hero } from "@/components/sections/hero";
+import { CredentialsStrip } from "@/components/sections/credentials-strip";
+import { StatsBand } from "@/components/sections/stats-band";
+import { AboutPreview } from "@/components/sections/about-preview";
+import { RoboticShowcase } from "@/components/sections/robotic-showcase";
+import { TreatmentsGrid } from "@/components/sections/treatments-grid";
+import { Testimonials } from "@/components/sections/testimonials";
+import { WhyChoose } from "@/components/sections/why-choose";
+import { CtaSection } from "@/components/sections/cta-section";
+import { FAQ } from "@/components/sections/faq";
+import { buildAggregateRatingSchema } from "@/lib/schema";
+import { DOCTOR, SITE } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: `${DOCTOR.name} — ${SITE.tagline}`,
+  description: SITE.defaultDescription,
+  alternates: { canonical: SITE.url },
+};
+
+export default function HomePage() {
+  const aggregateRating = buildAggregateRatingSchema();
+
+  return (
+    <>
+      <Hero />
+      <CredentialsStrip />
+      <StatsBand />
+      <AboutPreview />
+      <RoboticShowcase />
+      <TreatmentsGrid />
+      <Testimonials />
+      <WhyChoose />
+      <CtaSection />
+      <FAQ />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRating) }}
+      />
+    </>
+  );
+}
