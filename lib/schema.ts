@@ -88,3 +88,64 @@ export function buildAggregateRatingSchema() {
     worstRating: "1",
   };
 }
+
+export function buildMedicalProcedureSchema({
+  name,
+  description,
+  url,
+}: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name,
+    description,
+    url,
+    procedureType: "https://schema.org/SurgicalProcedure",
+    performer: {
+      "@type": "Physician",
+      name: DOCTOR.name,
+      url: SITE.url,
+    },
+  };
+}
+
+export function buildArticleSchema({
+  title,
+  description,
+  slug,
+  publishedAt,
+  updatedAt,
+  image,
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  publishedAt: string;
+  updatedAt?: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    headline: title,
+    description,
+    url: `${SITE.url}/blog/${slug}`,
+    datePublished: publishedAt,
+    dateModified: updatedAt ?? publishedAt,
+    image: image ?? `${SITE.url}/og/default.png`,
+    author: {
+      "@type": "Physician",
+      name: DOCTOR.name,
+      url: SITE.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+    },
+  };
+}

@@ -1,15 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, DOCTOR } from "@/lib/constants";
+import { ChevronDown } from "lucide-react";
+import { NAV_LINKS, DOCTOR, TREATMENTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { MobileNav } from "./mobile-nav";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -17,6 +20,25 @@ export function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setTreatmentsOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setTreatmentsOpen(false);
+      }
+    };
+    if (treatmentsOpen) {
+      document.addEventListener("mousedown", onClick);
+      return () => document.removeEventListener("mousedown", onClick);
+    }
+  }, [treatmentsOpen]);
 
   return (
     <header
@@ -41,11 +63,76 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-6" aria-label="Primary">
           {NAV_LINKS.map((link) => {
             const active =
               pathname === link.href ||
               (link.href !== "/" && pathname.startsWith(link.href));
+
+            if (link.href === "/treatments") {
+              return (
+                <div
+                  key={link.href}
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={() => setTreatmentsOpen(true)}
+                  onMouseLeave={() => setTreatmentsOpen(false)}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setTreatmentsOpen((v) => !v)}
+                    className={cn(
+                      "inline-flex items-center gap-1 text-body-sm font-medium transition-colors duration-300",
+                      active
+                        ? "text-primary"
+                        : "text-text-secondary hover:text-text-primary"
+                    )}
+                    aria-expanded={treatmentsOpen}
+                    aria-haspopup="menu"
+                  >
+                    {link.label}
+                    <ChevronDown
+                      size={14}
+                      className={cn(
+                        "transition-transform duration-300",
+                        treatmentsOpen && "rotate-180"
+                      )}
+                    />
+                  </button>
+                  <div
+                    role="menu"
+                    className={cn(
+                      "absolute left-0 top-full pt-3 w-72 transition-all duration-300 ease-smooth",
+                      treatmentsOpen
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-1 pointer-events-none"
+                    )}
+                  >
+                    <div className="rounded-lg bg-surface border border-border shadow-lg p-2">
+                      <Link
+                        href="/treatments"
+                        role="menuitem"
+                        className="block px-3 py-2 rounded-md text-body-sm font-medium text-text-primary hover:bg-primary-soft transition-colors"
+                      >
+                        All treatments →
+                      </Link>
+                      <div className="my-1 border-t border-divider" />
+                      {TREATMENTS.map((t) => (
+                        <Link
+                          key={t.slug}
+                          href={`/treatments/${t.slug}`}
+                          role="menuitem"
+                          className="block px-3 py-2 rounded-md text-body-sm text-text-secondary hover:bg-primary-soft hover:text-text-primary transition-colors"
+                        >
+                          {t.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.href}
@@ -64,7 +151,10 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link href="/book" className="hidden md:inline-flex btn-primary !py-2.5 !px-5 text-body-sm">
+          <Link
+            href="/book"
+            className="hidden md:inline-flex btn-primary !py-2.5 !px-5 text-body-sm"
+          >
             Book Appointment
           </Link>
           <MobileNav />

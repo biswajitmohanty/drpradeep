@@ -109,17 +109,56 @@ public/images/    all imagery; see public/images/README.md
   with consented patient stories before launch. See
   `components/sections/testimonials.tsx`.
 
-## Known follow-ups (do not address in Phase 1)
+## Known follow-ups (tracked in POST_LAUNCH.md)
 
-- **JS bundle size.** Homepage First Load JS is ~162KB (target: <100KB).
-  framer-motion is the main contributor. Phase 4 cleanup should either
-  selectively import from `framer-motion/dom`, swap to CSS animations for
-  scroll reveals, or lazy-load motion-heavy sections.
+- **JS bundle size.** Homepage First Load JS is ~164KB (target: <100KB).
+  framer-motion is the main contributor. Candidate fixes: selective import
+  from `framer-motion/dom`, swap to CSS animations for scroll reveals, or
+  lazy-load motion-heavy sections.
 - **Real imagery.** All images in `/public/images` are PLACEHOLDER SVGs.
 - **Real stats.** `STATS` in `lib/constants.ts` uses reasonable defaults;
   verify "1500+ surgeries" and "4.9★" with the doctor before launch.
 - **Phone, WhatsApp, email.** Three placeholder tokens in
   `lib/constants.ts` — `phone`, `whatsapp`, `whatsappIntl`, `email`.
+- **Production integrations.** Supabase + Resend + Plausible + Clarity are
+  wired behind env-var flags. Flip them on by populating `.env.local` (or
+  Vercel env vars) per `.env.example`. Run
+  `supabase/migrations/0001_bookings.sql` to create the bookings table.
+
+## Content pipeline
+
+- **Treatments** — `content/treatments/*.mdx`. Frontmatter plus
+  `## [section]` blocks that `lib/content.ts` parses into structured data
+  (symptoms, options, what-to-expect, recovery, risks, faqs, related).
+  The page template at `app/(marketing)/treatments/[slug]/page.tsx`
+  renders each section consistently across the 6 treatments.
+- **Blog** — `content/blog/*.mdx`. Standard frontmatter; body is rendered
+  by `components/blog/mdx.tsx` (next-mdx-remote + remark-gfm). Posts use
+  ISR (1-hour revalidate). Reading time is calculated at build from
+  `reading-time`.
+- **Testimonials** — `content/testimonials/testimonials.json`. All
+  entries currently PLACEHOLDER (see JSON `_note`). Replace before launch.
+
+## Booking API contract
+
+- `POST /api/booking`, JSON body validated by `lib/schema-forms.ts`
+  (`bookingSchema`). Honeypot field `website` must be empty; filled
+  requests get a 200 with no side effects.
+- When Supabase is configured, inserts into `public.bookings` table
+  (schema in `supabase/migrations/0001_bookings.sql`, RLS locked).
+- When Resend is configured, sends clinic notification + optional
+  patient confirmation email.
+- Always returns `{ ok: true }` on successful submission, even if
+  downstream persistence or email fails — never lose the patient.
+  Failures are logged server-side.
+
+## Testing
+
+- `npm run test:e2e` runs the Playwright smoke suite against a
+  production build. The suite boots its own `npm run build && npm run
+  start` via `playwright.config.ts`.
+- The suite deliberately uses real form submissions (no mocks) — the
+  API route logs/persists depending on env configuration.
 
 ## Running the project
 

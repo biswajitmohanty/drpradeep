@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { SITE, DOCTOR } from "@/lib/constants";
 import { buildPhysicianSchema, buildOrganizationSchema } from "@/lib/schema";
+import { Analytics } from "@/components/analytics";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -107,6 +108,7 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           />
         ))}
+        <Analytics />
       </body>
     </html>
   );

@@ -1,0 +1,101 @@
+{
+  "_note": "PLACEHOLDER — to be replaced with real, consented patient testimonials before launch. Each entry represents a realistic but fictional case composite, not an actual patient.",
+  "testimonials": [
+    {
+      "id": "sanjay-knee",
+      "name": "Sanjay",
+      "age": 62,
+      "city": "Bhubaneswar",
+      "condition": "Severe bilateral knee arthritis",
+      "procedure": "Robotic total knee replacement",
+      "category": "knee",
+      "quote": "I couldn't climb stairs without stopping halfway. Six weeks after my robotic knee replacement with Dr. Sahoo, I walked to the temple with my grandchildren. The precision of the robot made a real difference to my recovery.",
+      "summary": "Walking pain-free within 6 weeks of bilateral robotic knee replacement.",
+      "featured": true
+    },
+    {
+      "id": "mamata-hip",
+      "name": "Mamata",
+      "age": 58,
+      "city": "Cuttack",
+      "condition": "Hip osteoarthritis",
+      "procedure": "Total hip replacement",
+      "category": "hip",
+      "quote": "Dr. Sahoo spent forty minutes explaining my options before ever mentioning surgery. When I finally had the hip replacement, he kept my family informed through every step. I am walking pain-free after twenty years.",
+      "summary": "Returned to full mobility after two decades of progressive hip pain.",
+      "featured": true
+    },
+    {
+      "id": "rakesh-acl",
+      "name": "Rakesh",
+      "age": 34,
+      "city": "Bhubaneswar",
+      "condition": "ACL tear (football injury)",
+      "procedure": "Arthroscopic ACL reconstruction",
+      "category": "sports",
+      "quote": "As a weekend footballer, I thought my playing days were over. Dr. Sahoo's arthroscopic reconstruction and a structured recovery plan had me back on the pitch in five months. Honest, patient, skilled.",
+      "summary": "Back to competitive football in 5 months after ACL reconstruction.",
+      "featured": true
+    },
+    {
+      "id": "lalita-hip-complex",
+      "name": "Lalita",
+      "age": 67,
+      "city": "Bhubaneswar",
+      "condition": "Complex hip arthritis with leg length discrepancy",
+      "procedure": "Robotic total hip replacement",
+      "category": "hip",
+      "quote": "I was told my case was complicated because of a previous fracture. The robotic planning let Dr. Sahoo correct my leg length and restore hip motion. I no longer walk with a limp.",
+      "summary": "Complex hip anatomy corrected with robotic-assisted planning.",
+      "featured": false
+    },
+    {
+      "id": "bikash-trauma",
+      "name": "Bikash",
+      "age": 46,
+      "city": "Khurda",
+      "condition": "Complex tibial plateau fracture (road accident)",
+      "procedure": "Internal fixation with plate and screws",
+      "category": "trauma",
+      "quote": "After my accident, I was told I might not walk normally again. Dr. Sahoo's surgery and the physiotherapy plan he gave my wife meant I was back at work six months later. My knee feels stable today.",
+      "summary": "Returned to full work after major tibial plateau fracture.",
+      "featured": false
+    },
+    {
+      "id": "priyanka-shoulder",
+      "name": "Priyanka",
+      "age": 28,
+      "city": "Bhubaneswar",
+      "condition": "Recurrent shoulder dislocation",
+      "procedure": "Arthroscopic Bankart repair",
+      "category": "sports",
+      "quote": "My shoulder had popped out more than ten times. After the keyhole surgery and the rehab programme, I have confidence in it again — swimming, gym, and carrying my daughter without worry.",
+      "summary": "Shoulder stability restored after recurrent dislocations.",
+      "featured": false
+    },
+    {
+      "id": "hari-knee-partial",
+      "name": "Hari",
+      "age": 54,
+      "city": "Puri",
+      "condition": "Medial compartment knee arthritis",
+      "procedure": "Partial (uni-compartmental) knee replacement",
+      "category": "knee",
+      "quote": "Dr. Sahoo explained that only part of my knee was worn out — the rest was healthy. The partial replacement he did preserved the rest of my joint. I was driving again in four weeks.",
+      "summary": "Partial knee replacement preserved healthy joint; back to driving in 4 weeks.",
+      "featured": false
+    },
+    {
+      "id": "meera-spine",
+      "name": "Meera",
+      "age": 51,
+      "city": "Bhubaneswar",
+      "condition": "Chronic lower back pain",
+      "procedure": "Structured non-surgical management",
+      "category": "spine",
+      "quote": "I was convinced I needed back surgery. Dr. Sahoo did not recommend it. He built a physiotherapy plan, changed my work setup, and followed up every few weeks. Six months later my pain is 80 percent better — without surgery.",
+      "summary": "Chronic back pain significantly improved without surgery.",
+      "featured": false
+    }
+  ]
+}

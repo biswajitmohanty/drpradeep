@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE, TREATMENTS } from "@/lib/constants";
+import { getAllPostSlugs } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -27,5 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...treatmentRoutes];
+  const blogRoutes = getAllPostSlugs().map((slug) => ({
+    url: `${SITE.url}/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...treatmentRoutes, ...blogRoutes];
 }

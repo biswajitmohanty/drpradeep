@@ -42,3 +42,8 @@ next-env.d.ts
 # IDE
 .vscode/
 .idea/
+
+# Playwright
+/playwright-report
+/playwright/.cache
+/test-results
