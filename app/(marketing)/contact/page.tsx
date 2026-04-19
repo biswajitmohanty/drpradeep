@@ -8,6 +8,7 @@ import {
   MapPin,
   MessageCircle,
   Phone,
+  Star,
 } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import {
@@ -17,6 +18,7 @@ import {
   telLink,
   whatsappLink,
 } from "@/lib/constants";
+import { getGoogleReviewSummary } from "@/lib/google-reviews";
 
 export const metadata: Metadata = {
   title: "Contact — Clinic Locations & Timings",
@@ -25,7 +27,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE.url}/contact` },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const reviews = await getGoogleReviewSummary();
+
   return (
     <>
       <Section size="lg" aria-labelledby="contact-heading">
@@ -49,9 +53,13 @@ export default function ContactPage() {
       <Section variant="elevated">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {CLINICS.map((c) => {
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-              c.mapQuery
-            )}`;
+            const googleProfileUrl =
+              "googleProfileUrl" in c ? c.googleProfileUrl : undefined;
+            const mapsUrl =
+              googleProfileUrl ??
+              `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                c.mapQuery
+              )}`;
             return (
               <div
                 key={c.id}
@@ -75,7 +83,7 @@ export default function ContactPage() {
                 </ul>
 
                 <div className="mt-6 aspect-video rounded-md overflow-hidden border border-border bg-surface-elevated">
-                  {/* Lazy-loaded Google Maps embed — no API key needed for simple place search */}
+                  {/* Lazy-loaded Google Maps embed — no API key needed for place search */}
                   <iframe
                     title={`Map of ${c.name}`}
                     src={`https://maps.google.com/maps?q=${encodeURIComponent(
@@ -89,7 +97,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-6 flex flex-wrap gap-5">
                   <a
                     href={mapsUrl}
                     target="_blank"
@@ -99,6 +107,19 @@ export default function ContactPage() {
                     Get directions
                     <ArrowRight size={14} />
                   </a>
+                  {googleProfileUrl ? (
+                    <a
+                      href={googleProfileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-body-sm font-medium text-primary hover:underline"
+                    >
+                      <Star size={14} className="fill-accent text-accent" />
+                      {reviews
+                        ? `${reviews.rating.toFixed(1)} (${reviews.userRatingsTotal} Google reviews)`
+                        : "Read Google reviews"}
+                    </a>
+                  ) : null}
                 </div>
               </div>
             );

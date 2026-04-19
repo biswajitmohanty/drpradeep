@@ -20,12 +20,12 @@ content, decisions, and accounts are in place.
 
 ## Contact details
 
-- [ ] Replace placeholder phone, WhatsApp, and WhatsApp international
-  numbers in `lib/constants.ts` with real values.
-- [ ] Replace `appointments@drpradeepsahoo.com` with the actual intake
-  inbox.
-- [ ] Replace clinic addresses and hours in `lib/constants.ts` with real
-  addresses and verified OPD schedules.
+- [x] Real phone / WhatsApp (`+91-9855100122`) and email
+  (`eliteorthocareandrehab@gmail.com`) wired in `lib/constants.ts`.
+- [x] Elite Ortho Care address + OPD timings wired with Google Maps place URL.
+- [ ] Confirm whether Dr. Sahoo still consults at UTKAL Hospital. If yes,
+  provide exact OPD timings and maps URL; if no, remove the UTKAL entry from
+  `CLINICS` in `lib/constants.ts` and from the About page affiliations.
 
 ## Production integrations (Phase 5 wiring is in place)
 
@@ -35,6 +35,10 @@ content, decisions, and accounts are in place.
   `RESEND_API_KEY` + `CLINIC_NOTIFICATION_EMAIL` + `CLINIC_FROM_EMAIL`.
 - [ ] Add `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` once the Plausible site is set up.
 - [ ] Add `NEXT_PUBLIC_CLARITY_ID` once the Clarity project is set up.
+- [ ] Add `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` to show the live Google
+  rating on the homepage stats band and emit a real `AggregateRating` schema.
+  Place ID can be looked up at
+  https://developers.google.com/maps/documentation/places/web-service/place-id.
 
 ## SEO hardening (Phase 4)
 

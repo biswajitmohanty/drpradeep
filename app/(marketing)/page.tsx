@@ -11,6 +11,7 @@ import { CtaSection } from "@/components/sections/cta-section";
 import { FAQ } from "@/components/sections/faq";
 import { buildAggregateRatingSchema } from "@/lib/schema";
 import { DOCTOR, SITE } from "@/lib/constants";
+import { getGoogleReviewSummary } from "@/lib/google-reviews";
 
 export const metadata: Metadata = {
   title: `${DOCTOR.name} — ${SITE.tagline}`,
@@ -18,8 +19,14 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE.url },
 };
 
-export default function HomePage() {
-  const aggregateRating = buildAggregateRatingSchema();
+export default async function HomePage() {
+  const reviews = await getGoogleReviewSummary();
+  const aggregateRating = reviews
+    ? buildAggregateRatingSchema({
+        ratingValue: reviews.rating,
+        reviewCount: reviews.userRatingsTotal,
+      })
+    : null;
 
   return (
     <>
@@ -34,10 +41,12 @@ export default function HomePage() {
       <CtaSection />
       <FAQ />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRating) }}
-      />
+      {aggregateRating ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRating) }}
+        />
+      ) : null}
     </>
   );
 }

@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, IndianRupee, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { BookingForm } from "@/components/sections/booking-form";
-import { CLINICS, DOCTOR, SITE, telLink, whatsappLink } from "@/lib/constants";
+import {
+  CLINICS,
+  CONSULTATION_FEE_INR,
+  DOCTOR,
+  SITE,
+  telLink,
+  whatsappLink,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Book a Consultation",
@@ -40,6 +47,22 @@ export default function BookPage() {
           </div>
 
           <aside className="lg:col-span-5 space-y-6" aria-label="Clinic information">
+            <div className="rounded-xl bg-accent-soft/50 border border-accent/30 p-6 md:p-7 flex items-start gap-4">
+              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-accent text-white flex-shrink-0">
+                <IndianRupee size={20} />
+              </span>
+              <div>
+                <p className="font-display text-h4 font-medium text-text-primary">
+                  Consultation fee: ₹{CONSULTATION_FEE_INR.toLocaleString("en-IN")}
+                </p>
+                <p className="mt-1 text-body-sm text-text-secondary text-pretty">
+                  Covers a thorough clinical examination, review of any
+                  imaging you bring, and a written treatment plan. Most
+                  insurance policies reimburse consultation charges.
+                </p>
+              </div>
+            </div>
+
             <div className="rounded-xl bg-surface border border-border p-6 md:p-8">
               <h2 className="font-display text-h3 font-medium text-text-primary">
                 Reach us directly

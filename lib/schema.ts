@@ -73,7 +73,10 @@ export function buildFAQSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
-export function buildAggregateRatingSchema() {
+export function buildAggregateRatingSchema(input: {
+  ratingValue: number;
+  reviewCount: number;
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "AggregateRating",
@@ -81,9 +84,8 @@ export function buildAggregateRatingSchema() {
       "@type": "Physician",
       name: DOCTOR.name,
     },
-    // TODO: replace with verified rating + count
-    ratingValue: "4.9",
-    reviewCount: "150",
+    ratingValue: input.ratingValue.toFixed(1),
+    reviewCount: String(input.reviewCount),
     bestRating: "5",
     worstRating: "1",
   };
