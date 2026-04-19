@@ -51,14 +51,6 @@ test.describe("site smoke", () => {
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   });
 
-  test("blog article renders with structured content", async ({ page }) => {
-    await page.goto("/blog");
-    const firstArticle = page.locator("main a").filter({ hasText: /read article/i }).first();
-    await firstArticle.click();
-    await expect(page).toHaveURL(/\/blog\//);
-    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  });
-
   test("sitemap and robots respond", async ({ request }) => {
     const sitemap = await request.get("/sitemap.xml");
     expect(sitemap.ok()).toBe(true);

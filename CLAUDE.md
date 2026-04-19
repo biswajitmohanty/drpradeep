@@ -132,10 +132,10 @@ public/images/    all imagery; see public/images/README.md
   (symptoms, options, what-to-expect, recovery, risks, faqs, related).
   The page template at `app/(marketing)/treatments/[slug]/page.tsx`
   renders each section consistently across the 6 treatments.
-- **Blog** — `content/blog/*.mdx`. Standard frontmatter; body is rendered
-  by `components/blog/mdx.tsx` (next-mdx-remote + remark-gfm). Posts use
-  ISR (1-hour revalidate). Reading time is calculated at build from
-  `reading-time`.
+- **Blog** — removed. If reinstated later, restore `content/blog/`,
+  `components/blog/mdx.tsx`, `lib/blog.ts`, and the `/blog` routes from
+  git history (commits up to and including `5b9cba0`) and reinstall
+  `next-mdx-remote` + `remark-gfm` + `reading-time`.
 - **Testimonials** — `content/testimonials/testimonials.json`. All
   entries currently PLACEHOLDER (see JSON `_note`). Replace before launch.
 

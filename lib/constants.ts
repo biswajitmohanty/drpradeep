@@ -151,7 +151,6 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/treatments", label: "Treatments" },
   { href: "/robotic-surgery", label: "Robotic Surgery" },
   { href: "/patient-stories", label: "Patient Stories" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 

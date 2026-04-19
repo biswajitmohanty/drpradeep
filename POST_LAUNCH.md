@@ -42,7 +42,7 @@ content, decisions, and accounts are in place.
 
 - [ ] Run Google Rich Results test against each page and fix any warnings.
 - [ ] Run Lighthouse on homepage, about, treatments overview, one treatment
-  page, booking, and a blog article. Target mobile 95+.
+  page, and booking. Target mobile 95+.
 - [ ] Submit sitemap to Google Search Console and Bing Webmaster Tools.
 - [ ] Replace the open-graph `portrait.jpg` reference in
   `lib/schema.ts` once the real portrait is uploaded.
@@ -57,9 +57,9 @@ content, decisions, and accounts are in place.
 
 - [ ] Peer review all treatment MDX files with a second orthopaedic
   surgeon to confirm clinical accuracy.
-- [ ] Same for the 5 starter blog articles.
-- [ ] Establish a publishing workflow (who writes, who reviews, who
-  publishes) before adding new blog articles.
+- [ ] If the blog is reinstated, repeat the review for each article and
+  establish a publishing workflow (who writes, who reviews, who publishes)
+  before new articles go live.
 
 ## Accessibility audit
 
