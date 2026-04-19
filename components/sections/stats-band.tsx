@@ -1,4 +1,4 @@
-import { Award, Clock, MapPin, Stethoscope } from "lucide-react";
+import { Award, Clock, GraduationCap, Stethoscope } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { StatCard } from "@/components/shared/stat-card";
 import { STATS } from "@/lib/constants";
@@ -7,8 +7,7 @@ import { getGoogleReviewSummary } from "@/lib/google-reviews";
 const iconsByLabel: Record<string, React.ReactNode> = {
   "Years of experience": <Clock size={20} />,
   "Successful surgeries": <Stethoscope size={20} />,
-  "Patient rating": <Award size={20} />,
-  "Clinic locations": <MapPin size={20} />,
+  "Robotic surgery fellowship": <GraduationCap size={20} />,
 };
 
 export async function StatsBand() {

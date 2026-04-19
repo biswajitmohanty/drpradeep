@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: Props) {
                 Have a specific question about your knee or hip?
               </h2>
               <p className="mt-2 text-white/80 text-pretty">
-                Book a consultation at UTKAL Hospital or Elite Ortho Care.
+                Book a consultation at Elite Ortho Care in Chandrasekharpur, Bhubaneswar.
               </p>
             </div>
             <Link

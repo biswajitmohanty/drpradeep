@@ -25,9 +25,10 @@ export const bookingSchema = z.object({
     ],
     { message: "Please select what you'd like to discuss" }
   ),
-  clinic: z.enum(["utkal", "elite", "either"], {
-    message: "Please choose a clinic",
-  }),
+  // Single-clinic practice — always "elite". The booking form supplies this
+  // via a hidden input; retaining the enum lets a future second clinic extend
+  // the allowed values without reshaping the database.
+  clinic: z.enum(["elite"]),
   preferredDate: z.string().trim().max(40).optional().or(z.literal("")),
   message: z.string().trim().max(600).optional().or(z.literal("")),
   // Honeypot — must stay empty
@@ -43,10 +44,4 @@ export const CONDITION_OPTIONS: { value: BookingPayload["condition"]; label: str
   { value: "trauma", label: "Fracture / trauma" },
   { value: "spine-joint", label: "Spine, neck, back or joint pain" },
   { value: "other", label: "Something else" },
-];
-
-export const CLINIC_OPTIONS: { value: BookingPayload["clinic"]; label: string }[] = [
-  { value: "utkal", label: "UTKAL Hospital" },
-  { value: "elite", label: "Elite Ortho Care" },
-  { value: "either", label: "Whichever is available sooner" },
 ];

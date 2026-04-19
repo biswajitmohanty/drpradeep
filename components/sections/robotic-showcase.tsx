@@ -73,7 +73,7 @@ export function RoboticShowcase() {
           </div>
           <p className="mt-3 text-caption text-text-muted text-center">
             Illustrative. Dr. Sahoo performs robotic-assisted procedures at
-            UTKAL Hospital, Bhubaneswar.
+            equipped partner hospitals in Bhubaneswar.
           </p>
         </div>
       </div>

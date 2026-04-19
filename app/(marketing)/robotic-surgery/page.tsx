@@ -114,7 +114,7 @@ const roboticFaqs = [
   {
     question: "Where can I have robotic surgery in Bhubaneswar?",
     answer:
-      "Dr. Sahoo performs robotic-assisted joint replacement at UTKAL Hospital, Bhubaneswar, which is equipped with the necessary surgical robotic platform.",
+      "Consultations happen at Elite Ortho Care in Chandrasekharpur, Bhubaneswar. The procedure itself is performed at a partner hospital equipped with the surgical robotic platform — the clinic team walks you through logistics, cost, and insurance before scheduling.",
   },
 ];
 

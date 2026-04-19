@@ -23,7 +23,6 @@ const CONDITION_LABELS: Record<string, string> = {
 const CLINIC_LABELS: Record<string, string> = Object.fromEntries(
   CLINICS.map((c) => [c.id, c.name])
 );
-CLINIC_LABELS.either = "Either clinic";
 
 interface BookingEmailData {
   name: string;

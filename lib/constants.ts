@@ -60,17 +60,6 @@ export const CLINICS = [
     googleProfileUrl:
       "https://www.google.com/maps/place/Dr.+Pradeep+Kumar+Sahoo,+Elite+Ortho+Care+%26+Rehab,+Best+Orthopedic+clinic,+Best+Physiotherapy+Centre/data=!4m2!3m1!1s0x0:0x78e8627437aadeb4?sa=X&ved=1t:2428&ictx=111",
   },
-  {
-    id: "utkal",
-    name: "UTKAL Hospital",
-    role: "Associate Consultant, Department of Orthopaedic Surgery",
-    city: "Bhubaneswar",
-    state: "Odisha",
-    // TODO: confirm if Dr. Sahoo still consults at UTKAL; if so, provide exact OPD timings.
-    address: "UTKAL Hospital, Bhubaneswar, Odisha",
-    hours: "By appointment — confirm with clinic",
-    mapQuery: "UTKAL Hospital Bhubaneswar",
-  },
 ] as const;
 
 export const TREATMENTS = [
@@ -122,7 +111,7 @@ export const STATS = [
   // TODO: verify surgery count with doctor before launch
   { value: "11+", label: "Years of experience" },
   { value: "1500+", label: "Successful surgeries" },
-  { value: "2", label: "Clinic locations" },
+  { value: "NHS", label: "Robotic surgery fellowship" },
 ] as const;
 
 export const CONSULTATION_FEE_INR = 1000;

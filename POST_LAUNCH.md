@@ -10,7 +10,7 @@ content, decisions, and accounts are in place.
 - [ ] Replace placeholder SVG in `public/images/treatments/robotic-surgery.svg`
   with either a real OT photo or a branded anatomical illustration.
 - [ ] Add hospital and institution logos to `public/images/credentials/`
-  (UTKAL Hospital, Elite Ortho Care, Apollo, NHS, MKCG Medical College, DNB,
+  (Elite Ortho Care, Apollo, NHS, MKCG Medical College, DNB,
   AO Foundation).
 - [ ] Replace placeholder patient testimonials in
   `content/testimonials/testimonials.json` with real, consented stories.
@@ -23,9 +23,7 @@ content, decisions, and accounts are in place.
 - [x] Real phone / WhatsApp (`+91-9855100122`) and email
   (`eliteorthocareandrehab@gmail.com`) wired in `lib/constants.ts`.
 - [x] Elite Ortho Care address + OPD timings wired with Google Maps place URL.
-- [ ] Confirm whether Dr. Sahoo still consults at UTKAL Hospital. If yes,
-  provide exact OPD timings and maps URL; if no, remove the UTKAL entry from
-  `CLINICS` in `lib/constants.ts` and from the About page affiliations.
+- [x] UTKAL Hospital removed from clinics, nav copy, and schema.
 
 ## Production integrations (Phase 5 wiring is in place)
 

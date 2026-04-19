@@ -28,7 +28,6 @@ test.describe("site smoke", () => {
     await page
       .getByLabel(/what would you like to discuss/i)
       .selectOption("knee-pain");
-    await page.getByLabel(/preferred clinic/i).selectOption("utkal");
     await page
       .getByLabel(/anything we should know/i)
       .fill("Smoke test — please ignore.");

@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "Book a Consultation",
   description:
-    "Book an appointment with Dr. Pradeep Kumar Sahoo at UTKAL Hospital or Elite Ortho Care in Bhubaneswar. Orthopaedic consultation for knee, hip, sports injury, and trauma care.",
+    "Book an appointment with Dr. Pradeep Kumar Sahoo at Elite Ortho Care, Chandrasekharpur, Bhubaneswar. Orthopaedic consultation for knee, hip, sports injury, and trauma care.",
   alternates: { canonical: `${SITE.url}/book` },
 };
 

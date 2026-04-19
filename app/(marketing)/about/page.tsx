@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "About Dr. Pradeep Kumar Sahoo",
   description:
-    "Orthopaedic surgeon in Bhubaneswar. DNB from Apollo Chennai, NHS Fellowship in Robotic Joint Replacement, 11+ years of experience. Practicing at UTKAL Hospital and Elite Ortho Care.",
+    "Orthopaedic surgeon in Bhubaneswar. DNB from Apollo Chennai, NHS Fellowship in Robotic Joint Replacement, 11+ years of experience. Practicing at Elite Ortho Care, Chandrasekharpur.",
   alternates: { canonical: `${SITE.url}/about` },
 };
 
@@ -36,8 +36,8 @@ export default function AboutPage() {
               knee and hip replacement in Bhubaneswar. Over{" "}
               {DOCTOR.experienceYears} years of practice have taken him from
               Apollo Chennai to an NHS fellowship in the UK — and home to
-              Odisha, where most of his patients now see him at UTKAL Hospital
-              and Elite Ortho Care.
+              Odisha, where his patients now see him at Elite Ortho Care in
+              Chandrasekharpur, Bhubaneswar.
             </p>
           </div>
           <div className="lg:col-span-5">

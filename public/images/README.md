@@ -15,9 +15,8 @@ needed.
 
 ### `/credentials`
 
-_(to be populated)_ Logo files for UTKAL Hospital, Elite Ortho Care, Apollo,
-NHS, MKCG Medical College, DNB, AO Foundation. SVG preferred, transparent
-background.
+_(to be populated)_ Logo files for Elite Ortho Care, Apollo, NHS, MKCG
+Medical College, DNB, AO Foundation. SVG preferred, transparent background.
 
 ### `/treatments`
 

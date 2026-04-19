@@ -371,7 +371,7 @@ export default async function TreatmentPage({ params }: Props) {
               Ready to discuss {t.frontmatter.title.toLowerCase()}?
             </h2>
             <p className="mt-3 text-white/80 text-pretty">
-              Book a consultation at UTKAL Hospital or Elite Ortho Care in
+              Book a consultation at Elite Ortho Care in Chandrasekharpur,
               Bhubaneswar.
             </p>
           </div>
