@@ -8,7 +8,6 @@ import {
   bookingSchema,
   type BookingPayload,
   CONDITION_OPTIONS,
-  CLINIC_OPTIONS,
 } from "@/lib/schema-forms";
 import { whatsappLink } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -30,6 +29,7 @@ export function BookingForm() {
       name: "",
       phone: "",
       email: "",
+      clinic: "elite",
       preferredDate: "",
       message: "",
       website: "",
@@ -203,28 +203,9 @@ export function BookingForm() {
         </select>
       </Field>
 
-      <Field
-        label="Preferred clinic"
-        required
-        error={errors.clinic?.message}
-        htmlFor="clinic"
-      >
-        <select
-          id="clinic"
-          {...register("clinic")}
-          className={inputCls(Boolean(errors.clinic))}
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Choose a clinic
-          </option>
-          {CLINIC_OPTIONS.map((o) => (
-            <option key={o.value} value={o.value}>
-              {o.label}
-            </option>
-          ))}
-        </select>
-      </Field>
+      {/* Single-clinic practice — always "elite". Registered as a hidden
+          input so react-hook-form submits it consistently. */}
+      <input type="hidden" {...register("clinic")} value="elite" />
 
       <Field
         label="Preferred date (optional)"

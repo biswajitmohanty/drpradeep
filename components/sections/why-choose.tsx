@@ -14,8 +14,8 @@ const differentiators = [
   },
   {
     icon: MapPinned,
-    title: "Two convenient locations",
-    body: "UTKAL Hospital and Elite Ortho Care, both in Bhubaneswar, with flexible OPD timings.",
+    title: "Accessible, flexible clinic hours",
+    body: "Elite Ortho Care in Chandrasekharpur, Bhubaneswar — open Mon through Sat, 9 AM to 10 PM.",
   },
   {
     icon: HeartHandshake,

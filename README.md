@@ -4,9 +4,10 @@ Website for **Dr. Pradeep Kumar Sahoo** — Orthopaedic Surgeon & Robotic Knee
 Replacement Specialist, Bhubaneswar.
 
 Built with **Next.js 15** (App Router), **TypeScript**, **Tailwind CSS v3**,
-**shadcn/ui** primitives, **MDX** content, and **Framer Motion**. Ships to
-**Vercel**. See `SPEC.md` for the full product spec, `CLAUDE.md` for working
-conventions, and `POST_LAUNCH.md` for items to address once real assets arrive.
+**shadcn/ui** primitives, MDX-driven treatment content, and **Framer
+Motion**. Ships to **Vercel**. See `SPEC.md` for the full product spec,
+`CLAUDE.md` for working conventions, and `POST_LAUNCH.md` for items to
+address once real assets arrive.
 
 ## Quickstart
 
@@ -41,12 +42,10 @@ components/
   sections/             page-level sections (hero, faq, forms, ...)
   shared/               atomic reusables (cards, badges, Section)
   ui/                   shadcn-style primitives (accordion, ...)
-  blog/                 MDX renderer for blog articles
 content/
   treatments/*.mdx      6 treatments, structured frontmatter + sections
-  blog/*.mdx            starter blog articles
   testimonials/         JSON of patient stories
-lib/                    constants, schema builders, env, supabase, email, blog
+lib/                    constants, schema builders, env, supabase, email
 public/images/          placeholder imagery (see README inside)
 supabase/migrations/    SQL migration for the bookings table
 tests/e2e/              Playwright smoke tests
@@ -107,10 +106,6 @@ returns success if they're missing (but without persistence or email).
 - **Treatment pages** — edit `content/treatments/*.mdx`. The page template
   parses the `## [section]` blocks; keep the structure consistent with
   existing files.
-- **Blog articles** — add a new `.mdx` file to `content/blog/` with the same
-  frontmatter shape used by existing posts. New articles appear on `/blog`
-  automatically, and the sitemap picks them up on the next build / ISR
-  revalidate (1 hour).
 - **Testimonials** — edit `content/testimonials/testimonials.json`. Mark
   each new entry with `featured: true` to surface it on the homepage.
 - **Contact details, stats, nav links** — edit `lib/constants.ts`.
@@ -118,8 +113,8 @@ returns success if they're missing (but without persistence or email).
 ## Testing
 
 `npm run test:e2e` runs the Playwright smoke suite: loads the homepage,
-navigates to the booking form, submits valid data, and confirms the success
-state. The suite also checks `sitemap.xml`, `robots.txt`, and a blog article.
+navigates to the booking form, submits valid data, confirms the success
+state, and checks a treatment detail page, `sitemap.xml`, and `robots.txt`.
 
 The Playwright config (`playwright.config.ts`) builds and starts the
 production server automatically — no need to pre-boot `npm run dev`.
@@ -129,7 +124,7 @@ production server automatically — no need to pre-boot `npm run dev`.
 - [x] **Phase 1** — Foundation & Homepage
 - [x] **Phase 2** — About + Treatments (6 MDX-driven treatment pages)
 - [x] **Phase 3** — Robotic Surgery + Patient Stories + Booking
-- [x] **Phase 4** — Blog + OG image generation
+- [x] **Phase 4** — Dynamic OG image generation (blog shelved)
 - [x] **Phase 5** — Supabase + Resend + analytics + smoke test wiring
 
 See `POST_LAUNCH.md` for the remaining items that depend on real content,

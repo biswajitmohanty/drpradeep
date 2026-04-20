@@ -24,7 +24,7 @@ export function CtaSection() {
               Ready to move without pain?
             </h2>
             <p className="mt-4 text-body-lg text-white/80 text-pretty max-w-lg">
-              Book a consultation at UTKAL Hospital or Elite Ortho Care in
+              Book a consultation at Elite Ortho Care in Chandrasekharpur,
               Bhubaneswar. Most patients are seen within a week — urgent cases
               sooner.
             </p>

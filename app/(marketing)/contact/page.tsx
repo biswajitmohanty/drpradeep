@@ -8,6 +8,7 @@ import {
   MapPin,
   MessageCircle,
   Phone,
+  Star,
 } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import {
@@ -17,15 +18,18 @@ import {
   telLink,
   whatsappLink,
 } from "@/lib/constants";
+import { getGoogleReviewSummary } from "@/lib/google-reviews";
 
 export const metadata: Metadata = {
   title: "Contact — Clinic Locations & Timings",
   description:
-    "Contact Dr. Pradeep Kumar Sahoo at UTKAL Hospital and Elite Ortho Care in Bhubaneswar. Clinic addresses, OPD timings, phone, WhatsApp, and directions.",
+    "Contact Dr. Pradeep Kumar Sahoo at Elite Ortho Care, Chandrasekharpur, Bhubaneswar. Clinic address, OPD timings, phone, WhatsApp, and directions.",
   alternates: { canonical: `${SITE.url}/contact` },
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const reviews = await getGoogleReviewSummary();
+
   return (
     <>
       <Section size="lg" aria-labelledby="contact-heading">
@@ -35,13 +39,14 @@ export default function ContactPage() {
             id="contact-heading"
             className="mt-3 font-display text-h1 md:text-display font-medium text-text-primary text-balance"
           >
-            Two clinics in Bhubaneswar. One point of contact.
+            Visit us in Chandrasekharpur.
           </h1>
           <p className="mt-6 text-body-lg text-text-secondary text-pretty">
             The fastest way to reach us is WhatsApp — replies are usually
             within an hour during working days. For appointment booking, use
-            the form on the Book page. For orthopaedic emergencies, call or
-            head directly to the emergency department at UTKAL Hospital.
+            the form on the Book page. For orthopaedic emergencies, please
+            call the clinic immediately or head to your nearest multi-specialty
+            hospital&apos;s emergency department.
           </p>
         </div>
       </Section>
@@ -49,9 +54,13 @@ export default function ContactPage() {
       <Section variant="elevated">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {CLINICS.map((c) => {
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-              c.mapQuery
-            )}`;
+            const googleProfileUrl =
+              "googleProfileUrl" in c ? c.googleProfileUrl : undefined;
+            const mapsUrl =
+              googleProfileUrl ??
+              `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                c.mapQuery
+              )}`;
             return (
               <div
                 key={c.id}
@@ -75,7 +84,7 @@ export default function ContactPage() {
                 </ul>
 
                 <div className="mt-6 aspect-video rounded-md overflow-hidden border border-border bg-surface-elevated">
-                  {/* Lazy-loaded Google Maps embed — no API key needed for simple place search */}
+                  {/* Lazy-loaded Google Maps embed — no API key needed for place search */}
                   <iframe
                     title={`Map of ${c.name}`}
                     src={`https://maps.google.com/maps?q=${encodeURIComponent(
@@ -89,7 +98,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-6 flex flex-wrap gap-5">
                   <a
                     href={mapsUrl}
                     target="_blank"
@@ -99,6 +108,19 @@ export default function ContactPage() {
                     Get directions
                     <ArrowRight size={14} />
                   </a>
+                  {googleProfileUrl ? (
+                    <a
+                      href={googleProfileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-body-sm font-medium text-primary hover:underline"
+                    >
+                      <Star size={14} className="fill-accent text-accent" />
+                      {reviews
+                        ? `${reviews.rating.toFixed(1)} (${reviews.userRatingsTotal} Google reviews)`
+                        : "Read Google reviews"}
+                    </a>
+                  ) : null}
                 </div>
               </div>
             );
@@ -188,9 +210,9 @@ export default function ContactPage() {
               </h2>
               <p className="mt-2 text-body text-text-secondary text-pretty max-w-xl">
                 For fractures, dislocations, and major injuries outside OPD
-                hours, go directly to UTKAL Hospital&apos;s emergency
-                department. For life-threatening emergencies, call the
-                national emergency number.
+                hours, go directly to the nearest multi-specialty hospital
+                with 24×7 orthopaedic emergency cover. For life-threatening
+                emergencies, call the national emergency number.
               </p>
             </div>
           </div>

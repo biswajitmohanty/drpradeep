@@ -8,11 +8,10 @@ export const DOCTOR = {
   country: "India",
   experienceYears: 11,
   languages: ["English", "Hindi", "Odia"],
-  email: "appointments@drpradeepsahoo.com",
-  // TODO: real contact numbers
-  phone: "+91-XXXXXXXXXX",
-  whatsapp: "+91-XXXXXXXXXX",
-  whatsappIntl: "91XXXXXXXXXX",
+  email: "eliteorthocareandrehab@gmail.com",
+  phone: "+91-9855100122",
+  whatsapp: "+91-9855100122",
+  whatsappIntl: "919855100122",
 } as const;
 
 export const EDUCATION = [
@@ -48,25 +47,18 @@ export const PAST_AFFILIATIONS = [
 
 export const CLINICS = [
   {
-    id: "utkal",
-    name: "UTKAL Hospital",
-    role: "Associate Consultant, Department of Orthopaedic Surgery",
-    city: "Bhubaneswar",
-    state: "Odisha",
-    // TODO: real address, geo, timings
-    address: "UTKAL Hospital, Bhubaneswar, Odisha",
-    hours: "Mon–Sat, 10:00 AM – 2:00 PM",
-    mapQuery: "UTKAL Hospital Bhubaneswar",
-  },
-  {
     id: "elite",
     name: "Elite Ortho Care and Rehab Centre",
     role: "Consultant Orthopaedic Surgeon",
     city: "Bhubaneswar",
     state: "Odisha",
-    address: "Elite Ortho Care and Rehab Centre, Bhubaneswar, Odisha",
-    hours: "Mon–Sat, 5:00 PM – 8:00 PM",
-    mapQuery: "Elite Ortho Care and Rehab Centre Bhubaneswar",
+    address:
+      "First Floor, Buddha Heights, CP 52, Ln 1, Sector IV, Neeladri Vihar, Chandrasekharpur, Bhubaneswar, Odisha 751021",
+    hours: "Mon – Sat, 9:00 AM – 10:00 PM",
+    mapQuery:
+      "Dr. Pradeep Kumar Sahoo, Elite Ortho Care & Rehab, Chandrasekharpur, Bhubaneswar",
+    googleProfileUrl:
+      "https://www.google.com/maps/place/Dr.+Pradeep+Kumar+Sahoo,+Elite+Ortho+Care+%26+Rehab,+Best+Orthopedic+clinic,+Best+Physiotherapy+Centre/data=!4m2!3m1!1s0x0:0x78e8627437aadeb4?sa=X&ved=1t:2428&ictx=111",
   },
 ] as const;
 
@@ -116,12 +108,41 @@ export const TREATMENTS = [
 ] as const;
 
 export const STATS = [
-  // TODO: replace with verified numbers before launch
+  // TODO: verify surgery count with doctor before launch
   { value: "11+", label: "Years of experience" },
   { value: "1500+", label: "Successful surgeries" },
-  { value: "4.9★", label: "Patient rating" },
-  { value: "2", label: "Clinic locations" },
+  { value: "NHS", label: "Robotic surgery fellowship" },
 ] as const;
+
+export const CONSULTATION_FEE_INR = 1000;
+
+export const KNEE_REPLACEMENT_PRICING = {
+  note: "Ranges for total implant + surgery + hospital stay in Bhubaneswar. Exact cost depends on method of surgery, implant choice, and hospital stay. Most major health insurance policies cover robotic knee replacement.",
+  rows: [
+    {
+      procedure: "Total Knee Replacement — one side",
+      range: "\u20B91,80,000 \u2013 \u20B92,60,000",
+    },
+    {
+      procedure: "Total Knee Replacement — both sides",
+      range: "\u20B93,80,000 \u2013 \u20B94,80,000",
+    },
+    {
+      procedure: "Partial Knee Replacement — one side",
+      range: "\u20B91,50,000 \u2013 \u20B92,20,000",
+    },
+    {
+      procedure: "Partial Knee Replacement — both sides",
+      range: "\u20B92,70,000 \u2013 \u20B93,60,000",
+    },
+  ],
+  factors: [
+    "Method of surgery (robotic-assisted vs conventional)",
+    "Implant manufacturer and design",
+    "Partial vs total knee replacement",
+    "Length of hospital stay",
+  ],
+} as const;
 
 export type NavLink = { href: string; label: string };
 
@@ -130,7 +151,6 @@ export const NAV_LINKS: NavLink[] = [
   { href: "/treatments", label: "Treatments" },
   { href: "/robotic-surgery", label: "Robotic Surgery" },
   { href: "/patient-stories", label: "Patient Stories" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -144,7 +164,8 @@ export const SITE = {
 } as const;
 
 export function whatsappLink(prefilledMessage?: string) {
-  const msg = prefilledMessage ?? "Hi Dr. Sahoo's clinic, I'd like to book a consultation.";
+  const msg =
+    prefilledMessage ?? "Hi Dr. Sahoo's clinic, I'd like to book a consultation.";
   return `https://wa.me/${DOCTOR.whatsappIntl}?text=${encodeURIComponent(msg)}`;
 }
 

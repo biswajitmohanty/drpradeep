@@ -73,7 +73,10 @@ export function buildFAQSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
-export function buildAggregateRatingSchema() {
+export function buildAggregateRatingSchema(input: {
+  ratingValue: number;
+  reviewCount: number;
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "AggregateRating",
@@ -81,9 +84,8 @@ export function buildAggregateRatingSchema() {
       "@type": "Physician",
       name: DOCTOR.name,
     },
-    // TODO: replace with verified rating + count
-    ratingValue: "4.9",
-    reviewCount: "150",
+    ratingValue: input.ratingValue.toFixed(1),
+    reviewCount: String(input.reviewCount),
     bestRating: "5",
     worstRating: "1",
   };
@@ -113,39 +115,3 @@ export function buildMedicalProcedureSchema({
   };
 }
 
-export function buildArticleSchema({
-  title,
-  description,
-  slug,
-  publishedAt,
-  updatedAt,
-  image,
-}: {
-  title: string;
-  description: string;
-  slug: string;
-  publishedAt: string;
-  updatedAt?: string;
-  image?: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    headline: title,
-    description,
-    url: `${SITE.url}/blog/${slug}`,
-    datePublished: publishedAt,
-    dateModified: updatedAt ?? publishedAt,
-    image: image ?? `${SITE.url}/og/default.png`,
-    author: {
-      "@type": "Physician",
-      name: DOCTOR.name,
-      url: SITE.url,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
-    },
-  };
-}

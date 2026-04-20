@@ -31,7 +31,7 @@ export const homepageFaqs = [
   {
     question: "Where does Dr. Sahoo practice?",
     answer:
-      "UTKAL Hospital and Elite Ortho Care and Rehab Centre, both in Bhubaneswar. OPD timings vary by location — see the contact page for current schedule.",
+      "Elite Ortho Care and Rehab Centre, Chandrasekharpur, Bhubaneswar. OPD hours are Mon through Sat, 9 AM to 10 PM — see the contact page for directions.",
   },
 ];
 

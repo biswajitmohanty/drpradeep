@@ -1,10 +1,10 @@
 export function CredentialsStrip() {
   const items = [
-    { name: "UTKAL Hospital, Bhubaneswar", role: "Current practice" },
-    { name: "Elite Ortho Care & Rehab, Bhubaneswar", role: "Current practice" },
-    { name: "Apollo Hospital, Chennai", role: "Trained at" },
-    { name: "NHS Hospital, UK (Fellowship)", role: "Robotic surgery fellow" },
-    { name: "MKCG Medical College, Berhampur", role: "MBBS" },
+    { name: "Apollo Hospital, Chennai", role: "DNB Orthopaedics" },
+    { name: "NHS, United Kingdom", role: "Robotic joint replacement fellow" },
+    { name: "MKCG Medical College", role: "MBBS" },
+    { name: "AO Foundation", role: "Trauma management" },
+    { name: "FIFA Sports Medicine", role: "Diploma" },
   ];
 
   return (
@@ -12,26 +12,28 @@ export function CredentialsStrip() {
       className="border-y border-border bg-surface"
       aria-labelledby="trust-heading"
     >
-      <div className="container-page py-8 md:py-10">
+      <div className="container-page py-10 md:py-12">
         <h2
           id="trust-heading"
-          className="text-caption uppercase tracking-[0.14em] text-text-muted text-center mb-6"
+          className="text-caption uppercase tracking-[0.14em] text-text-muted text-center mb-8"
         >
-          Trained &amp; trusted at
+          Trained &amp; certified at
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-6">
+        <ul className="flex flex-wrap justify-center gap-3 md:gap-4">
           {items.map((item) => (
-            <div
+            <li
               key={item.name}
-              className="flex flex-col items-center text-center gap-1"
+              className="flex flex-col rounded-lg border border-border bg-surface-elevated/50 px-4 py-3 md:px-5 md:py-4 min-w-[170px] md:min-w-[200px] text-center"
             >
-              <p className="text-body-sm font-medium text-text-primary leading-tight">
+              <span className="text-body-sm font-semibold text-text-primary leading-tight">
                 {item.name}
-              </p>
-              <p className="text-caption text-text-muted">{item.role}</p>
-            </div>
+              </span>
+              <span className="text-caption text-text-muted mt-1 uppercase tracking-[0.08em]">
+                {item.role}
+              </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

@@ -114,7 +114,7 @@ const roboticFaqs = [
   {
     question: "Where can I have robotic surgery in Bhubaneswar?",
     answer:
-      "Dr. Sahoo performs robotic-assisted joint replacement at UTKAL Hospital, Bhubaneswar, which is equipped with the necessary surgical robotic platform.",
+      "Consultations happen at Elite Ortho Care in Chandrasekharpur, Bhubaneswar. The procedure itself is performed at a partner hospital equipped with the surgical robotic platform — the clinic team walks you through logistics, cost, and insurance before scheduling.",
   },
 ];
 
@@ -206,18 +206,19 @@ export default function RoboticSurgeryPage() {
             </p>
           </div>
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/10 to-primary-soft/40">
+            <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/10 to-primary-soft/40">
               <Image
-                src="/images/treatments/robotic-surgery.svg"
-                alt="Illustration of robotic-assisted joint replacement"
+                src="/images/doctor/robotic-smith-nephew.jpg"
+                alt={`${DOCTOR.name} with the Smith+Nephew CORI surgical robotics platform`}
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <p className="mt-3 text-caption text-text-muted text-center">
               {/* TODO: replace with a short explainer video */}
-              Illustrative placeholder — video walkthrough coming soon.
+              Smith+Nephew CORI — one of the robotic platforms Dr. Sahoo uses
+              at partner hospitals in Bhubaneswar.
             </p>
           </div>
         </div>

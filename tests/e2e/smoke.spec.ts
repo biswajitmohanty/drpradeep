@@ -28,7 +28,6 @@ test.describe("site smoke", () => {
     await page
       .getByLabel(/what would you like to discuss/i)
       .selectOption("knee-pain");
-    await page.getByLabel(/preferred clinic/i).selectOption("utkal");
     await page
       .getByLabel(/anything we should know/i)
       .fill("Smoke test — please ignore.");
@@ -49,14 +48,6 @@ test.describe("site smoke", () => {
       .first()
       .click();
     await expect(page).toHaveURL(/\/treatments\/knee-replacement/);
-    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  });
-
-  test("blog article renders with structured content", async ({ page }) => {
-    await page.goto("/blog");
-    const firstArticle = page.locator("main a").filter({ hasText: /read article/i }).first();
-    await firstArticle.click();
-    await expect(page).toHaveURL(/\/blog\//);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   });
 

@@ -95,12 +95,12 @@ export function Hero() {
               className="relative aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-br from-primary/10 via-surface-elevated to-accent-soft/50 border border-border shadow-lg"
             >
               <Image
-                src="/images/doctor/portrait.svg"
-                alt={`Portrait of ${DOCTOR.name}`}
+                src="/images/doctor/robotic-smith-nephew.jpg"
+                alt={`${DOCTOR.name} with the Smith+Nephew robotic surgery platform`}
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </motion.div>
 

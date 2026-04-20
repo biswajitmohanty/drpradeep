@@ -5,13 +5,15 @@ content, decisions, and accounts are in place.
 
 ## Content
 
-- [ ] Replace placeholder SVGs in `public/images/doctor/` with real photography
-  (portrait + operating theatre / clinic candids).
-- [ ] Replace placeholder SVG in `public/images/treatments/robotic-surgery.svg`
-  with either a real OT photo or a branded anatomical illustration.
-- [ ] Add hospital and institution logos to `public/images/credentials/`
-  (UTKAL Hospital, Elite Ortho Care, Apollo, NHS, MKCG Medical College, DNB,
-  AO Foundation).
+- [x] Real photography wired: `public/images/brand/logo.png`,
+  `public/images/doctor/robotic-smith-nephew.jpg`,
+  `public/images/doctor/robotic-velys.jpg`,
+  `public/images/doctor/ot-team.jpg`.
+- [ ] Source hospital / institution **logo files** (Apollo, NHS, MKCG,
+  AO Foundation, FIFA Sports Medicine). Until then the credentials trust
+  strip renders as text chips.
+- [ ] Optional: short explainer video for `/robotic-surgery` (currently a
+  still frame of the Smith+Nephew platform).
 - [ ] Replace placeholder patient testimonials in
   `content/testimonials/testimonials.json` with real, consented stories.
 - [ ] Verify real surgery counts, patient rating, and any other stats in
@@ -20,12 +22,10 @@ content, decisions, and accounts are in place.
 
 ## Contact details
 
-- [ ] Replace placeholder phone, WhatsApp, and WhatsApp international
-  numbers in `lib/constants.ts` with real values.
-- [ ] Replace `appointments@drpradeepsahoo.com` with the actual intake
-  inbox.
-- [ ] Replace clinic addresses and hours in `lib/constants.ts` with real
-  addresses and verified OPD schedules.
+- [x] Real phone / WhatsApp (`+91-9855100122`) and email
+  (`eliteorthocareandrehab@gmail.com`) wired in `lib/constants.ts`.
+- [x] Elite Ortho Care address + OPD timings wired with Google Maps place URL.
+- [x] UTKAL Hospital removed from clinics, nav copy, and schema.
 
 ## Production integrations (Phase 5 wiring is in place)
 
@@ -35,12 +35,16 @@ content, decisions, and accounts are in place.
   `RESEND_API_KEY` + `CLINIC_NOTIFICATION_EMAIL` + `CLINIC_FROM_EMAIL`.
 - [ ] Add `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` once the Plausible site is set up.
 - [ ] Add `NEXT_PUBLIC_CLARITY_ID` once the Clarity project is set up.
+- [ ] Add `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` to show the live Google
+  rating on the homepage stats band and emit a real `AggregateRating` schema.
+  Place ID can be looked up at
+  https://developers.google.com/maps/documentation/places/web-service/place-id.
 
 ## SEO hardening (Phase 4)
 
 - [ ] Run Google Rich Results test against each page and fix any warnings.
 - [ ] Run Lighthouse on homepage, about, treatments overview, one treatment
-  page, booking, and a blog article. Target mobile 95+.
+  page, and booking. Target mobile 95+.
 - [ ] Submit sitemap to Google Search Console and Bing Webmaster Tools.
 - [ ] Replace the open-graph `portrait.jpg` reference in
   `lib/schema.ts` once the real portrait is uploaded.
@@ -55,9 +59,9 @@ content, decisions, and accounts are in place.
 
 - [ ] Peer review all treatment MDX files with a second orthopaedic
   surgeon to confirm clinical accuracy.
-- [ ] Same for the 5 starter blog articles.
-- [ ] Establish a publishing workflow (who writes, who reviews, who
-  publishes) before adding new blog articles.
+- [ ] If the blog is reinstated, repeat the review for each article and
+  establish a publishing workflow (who writes, who reviews, who publishes)
+  before new articles go live.
 
 ## Accessibility audit
 
