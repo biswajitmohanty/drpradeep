@@ -105,13 +105,13 @@ export default function AboutPage() {
             Expert hands. One team. One goal — your recovery.
           </h2>
         </div>
-        <div className="relative w-full aspect-[24/8] md:aspect-[24/7] rounded-xl overflow-hidden border border-border shadow-md bg-surface-elevated">
+        <div className="relative w-full aspect-[2400/637] rounded-xl overflow-hidden border border-border shadow-md bg-surface-elevated">
           <Image
             src="/images/doctor/ot-team.jpg"
             alt={`${DOCTOR.name} with the operating-theatre team in Bhubaneswar`}
             fill
             sizes="(min-width: 1024px) 100vw, 100vw"
-            className="object-cover object-center"
+            className="object-contain"
           />
         </div>
         <p className="mt-3 text-caption text-text-muted text-center">

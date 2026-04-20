@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
-import { CredentialBadge } from "@/components/shared/credential-badge";
 import { DOCTOR } from "@/lib/constants";
 
 const fadeUp = {
@@ -101,30 +100,6 @@ export function Hero() {
                 priority
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 className="object-cover object-top"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -20, y: 10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="hidden sm:block absolute -left-4 lg:-left-8 bottom-12 max-w-[260px]"
-            >
-              <CredentialBadge
-                qualification="NHS Fellowship"
-                institution="Robotic Joint Replacement"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20, y: -10 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="hidden sm:block absolute -right-4 lg:-right-6 top-16 max-w-[260px]"
-            >
-              <CredentialBadge
-                qualification="DNB Orthopaedics"
-                institution="Apollo Main Hospital, Chennai"
               />
             </motion.div>
           </div>
