@@ -1,16 +1,27 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import {
   CLINICS,
   DOCTOR,
-  NAV_LINKS,
   whatsappLink,
   telLink,
 } from "@/lib/constants";
 
-export function Footer() {
+export async function Footer() {
   const year = new Date().getFullYear();
+  const t = await getTranslations("footer");
+  const tn = await getTranslations("nav");
+
+  const EXPLORE: { href: string; label: string }[] = [
+    { href: "/about", label: tn("about") },
+    { href: "/treatments", label: tn("treatments") },
+    { href: "/robotic-surgery", label: tn("roboticSurgery") },
+    { href: "/patient-stories", label: tn("patientStories") },
+    { href: "/contact", label: tn("contact") },
+    { href: "/book", label: tn("bookAppointment") },
+  ];
 
   return (
     <footer className="bg-surface-elevated border-t border-border mt-16 md:mt-24">
@@ -39,10 +50,10 @@ export function Footer() {
 
           <div>
             <h4 className="text-caption uppercase tracking-[0.12em] text-text-muted font-medium mb-4">
-              Explore
+              {t("explore")}
             </h4>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
+              {EXPLORE.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -52,20 +63,12 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/book"
-                  className="text-body-sm text-text-secondary hover:text-primary transition-colors"
-                >
-                  Book Appointment
-                </Link>
-              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-caption uppercase tracking-[0.12em] text-text-muted font-medium mb-4">
-              Clinics
+              {t("clinic")}
             </h4>
             <ul className="space-y-4">
               {CLINICS.map((c) => (
@@ -89,7 +92,7 @@ export function Footer() {
 
           <div>
             <h4 className="text-caption uppercase tracking-[0.12em] text-text-muted font-medium mb-4">
-              Get in touch
+              {t("getInTouch")}
             </h4>
             <ul className="space-y-3">
               <li>
@@ -127,12 +130,10 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="text-caption text-text-muted">
-            © {year} {DOCTOR.name}. All rights reserved.
+            {t("copyright", { year, name: DOCTOR.name })}
           </p>
-          <p className="text-caption text-text-muted max-w-lg md:text-right">
-            The information on this site is for general awareness and does not
-            constitute medical advice. Please consult {DOCTOR.shortName} or your
-            physician for diagnosis and treatment.
+          <p className="text-caption text-text-muted max-w-xl md:text-right">
+            {t("disclaimer", { shortName: DOCTOR.shortName })}
           </p>
         </div>
       </div>

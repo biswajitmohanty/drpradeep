@@ -1,15 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { NAV_LINKS, DOCTOR, whatsappLink } from "@/lib/constants";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+import { DOCTOR, whatsappLink } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations("nav");
+  const tc = useTranslations("common");
+
+  const NAV: { href: string; label: string }[] = [
+    { href: "/about", label: t("about") },
+    { href: "/treatments", label: t("treatments") },
+    { href: "/robotic-surgery", label: t("roboticSurgery") },
+    { href: "/patient-stories", label: t("patientStories") },
+    { href: "/contact", label: t("contact") },
+  ];
 
   useEffect(() => {
     setOpen(false);
@@ -32,7 +42,7 @@ export function MobileNav() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-md text-text-primary hover:bg-surface-elevated transition-colors"
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? t("closeMenu") : t("openMenu")}
         aria-expanded={open}
         aria-controls="mobile-menu"
       >
@@ -50,7 +60,7 @@ export function MobileNav() {
         aria-hidden={!open}
       >
         <div className="container-page flex flex-col gap-1 py-6">
-          {NAV_LINKS.map((link) => {
+          {NAV.map((link) => {
             const active =
               pathname === link.href ||
               (link.href !== "/" && pathname.startsWith(link.href));
@@ -70,7 +80,7 @@ export function MobileNav() {
 
           <div className="mt-6 flex flex-col gap-3">
             <Link href="/book" className="btn-primary w-full">
-              Book Appointment
+              {t("bookAppointment")}
             </Link>
             <a
               href={whatsappLink()}
@@ -78,13 +88,13 @@ export function MobileNav() {
               rel="noopener noreferrer"
               className="btn-secondary w-full"
             >
-              Chat on WhatsApp
+              {tc("chatOnWhatsapp")}
             </a>
             <a
               href={`tel:${DOCTOR.phone.replace(/[^+\d]/g, "")}`}
               className="btn-ghost w-full"
             >
-              Call the clinic
+              {tc("callClinic")}
             </a>
           </div>
         </div>

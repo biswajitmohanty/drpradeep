@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { DOCTOR, whatsappLink, telLink } from "@/lib/constants";

@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "about": "About",
+    "treatments": "Treatments",
+    "roboticSurgery": "Robotic Surgery",
+    "patientStories": "Patient Stories",
+    "contact": "Contact",
+    "bookAppointment": "Book Appointment",
+    "allTreatments": "All treatments",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Home",
+    "skipToMain": "Skip to main content",
+    "language": "Language"
+  },
+  "common": {
+    "bookConsultation": "Book a Consultation",
+    "bookAppointment": "Book Appointment",
+    "whatsapp": "WhatsApp",
+    "messageOnWhatsapp": "Message on WhatsApp",
+    "chatOnWhatsapp": "Chat on WhatsApp",
+    "callClinic": "Call the clinic",
+    "learnMore": "Learn more",
+    "viewAll": "View all treatments",
+    "getDirections": "Get directions",
+    "readGoogleReviews": "Read Google reviews",
+    "sendMessage": "Send a message"
+  },
+  "hero": {
+    "eyebrow": "Robotic-assisted joint replacement",
+    "headline": "Restoring movement with robotic precision.",
+    "subheadline": "{name} — Robotic Knee & Hip Replacement Surgeon in Bhubaneswar. {years}+ years of experience. Trained at Apollo Chennai and the NHS, UK.",
+    "primaryCta": "Book a Consultation",
+    "secondaryCta": "Watch How Robotic Surgery Works",
+    "acceptingPatients": "Accepting new patients",
+    "singleLocation": "Elite Ortho Care, Chandrasekharpur",
+    "languages": "Languages: English, Hindi, Odia"
+  },
+  "footer": {
+    "explore": "Explore",
+    "clinic": "Clinic",
+    "getInTouch": "Get in touch",
+    "copyright": "© {year} {name}. All rights reserved.",
+    "disclaimer": "The information on this site is for general awareness and does not constitute medical advice. Please consult {shortName} or your physician for diagnosis and treatment."
+  },
+  "localeNotice": {
+    "title": "Detailed content currently in English",
+    "body": "We're adding full Hindi and Odia translations for treatment details, patient stories, and long-form content. Meanwhile the navigation, hero, and booking form are available in all three languages. Please WhatsApp the clinic if you need help in Hindi or Odia."
+  },
+  "languageSwitcher": {
+    "label": "Choose language"
+  }
+}

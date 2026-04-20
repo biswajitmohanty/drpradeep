@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { PatientStoriesList } from "@/components/sections/patient-stories-list";
