@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Style A — Bold Blue / Corporate editorial (MedTrust-style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Anton&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue: #1D4ED8;
+    --blue-dark: #1E3A8A;
+    --blue-light: #3B82F6;
+    --blue-50: #EFF6FF;
+    --ink: #0F172A;
+    --muted: #64748B;
+    --bg: #F8FAFC;
+    --white: #FFFFFF;
+    --border: #E2E8F0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; }
+  .preview-bar { position: sticky; top: 0; z-index: 50; background: #111; color: #fff; padding: 10px 24px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  .preview-bar a { color: #93C5FD; text-decoration: none; margin-left: 16px; }
+  .preview-bar a.active { color: #fff; font-weight: 600; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--blue-dark), var(--blue)); color: #fff; padding: 14px 0 0; overflow: hidden; position: relative; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; max-width: 1280px; margin: 0 auto; }
+  .logo { font-family: 'Anton', sans-serif; font-size: 24px; letter-spacing: 1px; }
+  .logo span { color: #FDE047; }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 500; }
+  .nav-links a { color: #CBD5E1; text-decoration: none; }
+  .nav-links a.active { color: #fff; }
+  .btn-contact { background: transparent; border: 1.5px solid rgba(255,255,255,0.4); color: #fff; padding: 10px 22px; border-radius: 6px; font-weight: 500; font-size: 14px; cursor: pointer; }
+  .btn-contact:hover { background: #fff; color: var(--blue-dark); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr 1.1fr 1fr; align-items: end; gap: 24px; padding-top: 40px; min-height: 620px; position: relative; }
+  .hero-left { padding-bottom: 80px; z-index: 2; }
+  .stats-avatars { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .avatar-stack { display: flex; }
+  .avatar-stack img { width: 40px; height: 40px; border-radius: 50%; border: 2.5px solid var(--blue-dark); margin-left: -10px; object-fit: cover; }
+  .avatar-stack img:first-child { margin-left: 0; }
+  .stat-label { font-size: 24px; font-weight: 700; line-height: 1; }
+  .stat-label small { display: block; font-size: 12px; font-weight: 500; color: #CBD5E1; margin-top: 4px; }
+  .star-stat { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #CBD5E1; }
+  .star-stat svg { width: 18px; height: 18px; fill: #FACC15; }
+  .star-stat strong { color: #fff; font-weight: 700; }
+
+  .hero-headline { font-family: 'Anton', sans-serif; font-size: clamp(64px, 9vw, 140px); line-height: 0.88; letter-spacing: 1px; text-transform: uppercase; }
+  .hl-top { text-align: left; }
+  .hl-mid { text-align: left; color: var(--ink); background: var(--bg); padding: 50px 0; margin: 0 -24px; }
+  .hl-mid .container { position: relative; }
+  .hl-mid .line { color: var(--blue-dark); }
+
+  .hero-photo-wrap { position: relative; display: flex; justify-content: center; align-items: flex-end; z-index: 3; }
+  .hero-photo { width: 100%; max-width: 480px; height: 640px; object-fit: cover; object-position: top; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2)); }
+
+  .hero-right { padding-bottom: 80px; z-index: 2; text-align: right; }
+  .tagline-block { display: flex; gap: 12px; align-items: flex-start; justify-content: flex-end; }
+  .tagline-icon { width: 28px; height: 28px; background: #FDE047; border-radius: 50%; flex-shrink: 0; margin-top: 4px; display: flex; align-items: center; justify-content: center; }
+  .tagline-text { font-size: 15px; color: #E2E8F0; line-height: 1.6; max-width: 280px; text-align: left; }
+  .tagline-text strong { color: #fff; }
+
+  /* Middle split section */
+  .mid-split { background: var(--bg); padding: 60px 0 80px; position: relative; }
+  .mid-split .container { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 40px; }
+  .mid-left { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .mid-left img { width: 240px; height: 140px; object-fit: cover; border-radius: 8px; }
+  .play-button { position: absolute; width: 48px; height: 48px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid #fff; transform: translate(-50%, -50%); top: 50%; left: 50%; cursor: pointer; }
+  .play-button::after { content: ''; border-left: 10px solid #fff; border-top: 6px solid transparent; border-bottom: 6px solid transparent; margin-left: 2px; }
+  .mid-image-wrap { position: relative; width: 240px; height: 140px; }
+
+  .mid-headline { font-family: 'Anton', sans-serif; font-size: clamp(60px, 8vw, 120px); line-height: 0.9; color: var(--blue-dark); text-transform: uppercase; letter-spacing: 1px; }
+  .mid-right { display: flex; justify-content: flex-end; }
+  .mid-right img { width: 220px; height: 140px; object-fit: cover; border-radius: 8px; }
+
+  /* Bottom bar */
+  .bottom-bar { background: var(--bg); padding: 40px 0 80px; border-top: 1px solid var(--border); }
+  .bottom-bar .container { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 40px; }
+  .excellence-card { display: flex; gap: 16px; align-items: center; }
+  .excellence-icon { width: 48px; height: 48px; background: var(--blue-50); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 24px; }
+  .excellence-num { font-family: 'Anton', sans-serif; font-size: 52px; line-height: 1; color: var(--ink); }
+  .excellence-label { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .cta-primary { background: var(--blue); color: #fff; padding: 16px 40px; border-radius: 8px; border: 0; font-weight: 600; font-size: 15px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(29,78,216,0.3); }
+  .cta-primary:hover { background: var(--blue-dark); }
+
+  .style-note { max-width: 1280px; margin: 0 auto; padding: 40px 24px 80px; }
+  .style-note h2 { font-family: 'Anton', sans-serif; font-size: 32px; margin-bottom: 12px; }
+  .style-note p { color: var(--muted); font-size: 15px; max-width: 640px; line-height: 1.7; }
+  .style-note ul { margin-top: 16px; padding-left: 20px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+</style>
+</head>
+<body>
+  <div class="preview-bar">
+    <div><strong>Style A</strong> — Bold Blue / Corporate editorial (MedTrust-inspired)</div>
+    <div>
+      <a href="/preview-a.html" class="active">A · Blue</a>
+      <a href="/preview-b.html">B · Purple/Yellow</a>
+      <a href="/preview-c.html">C · Teal editorial</a>
+      <a href="/">← Back to site</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="nav">
+      <div class="logo">Dr<span>.</span>Sahoo</div>
+      <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Treatments</a>
+        <a href="#">Robotic Surgery</a>
+        <a href="#">Contact</a>
+      </div>
+      <button class="btn-contact">Contact Us</button>
+    </div>
+
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <div class="stats-avatars">
+          <div class="avatar-stack">
+            <img src="https://i.pravatar.cc/80?img=12" alt="" />
+            <img src="https://i.pravatar.cc/80?img=22" alt="" />
+            <img src="https://i.pravatar.cc/80?img=45" alt="" />
+          </div>
+          <div class="stat-label">1500+<small>Patients Treated</small></div>
+        </div>
+        <div class="star-stat">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span><strong>98%</strong> Patient Satisfaction</span>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="/images/doctor/robotic-smith-nephew.jpg" alt="Dr. Pradeep Kumar Sahoo" />
+      </div>
+
+      <div class="hero-right">
+        <div class="tagline-block">
+          <span class="tagline-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <div class="tagline-text">
+            <strong>Robotic-assisted joint replacement</strong> with sub-millimeter precision. 11+ years of experience, NHS fellowship-trained.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-headline hl-top" style="padding: 0 24px 0;">
+      <div class="container"><span>BECAUSE</span></div>
+    </div>
+  </section>
+
+  <section class="hl-mid">
+    <div class="container">
+      <div class="hero-headline"><span class="line">EVERY LIFE</span></div>
+    </div>
+  </section>
+
+  <section class="mid-split">
+    <div class="container">
+      <div class="mid-left">
+        <div class="mid-image-wrap">
+          <img src="/images/doctor/ot-team.jpg" alt="Team" />
+          <div class="play-button"></div>
+        </div>
+      </div>
+      <div>
+        <div class="mid-headline">MATTERS</div>
+      </div>
+      <div class="mid-right">
+        <img src="/images/doctor/robotic-velys.jpg" alt="Robotic surgery" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-bar">
+    <div class="container">
+      <div class="excellence-card">
+        <div class="excellence-icon">★</div>
+        <div>
+          <div class="excellence-num">11+</div>
+          <div class="excellence-label">Years of Medical Excellence</div>
+        </div>
+      </div>
+      <div></div>
+      <button class="cta-primary">Book An Appointment →</button>
+    </div>
+  </section>
+
+  <div class="style-note">
+    <h2>Style A — what it gives you</h2>
+    <p>Deep navy hero anchored by a split editorial headline. Corporate, confident, clinical. The doctor photo cuts the grid vertically; avatar stack + satisfaction stat reinforce social proof immediately.</p>
+    <ul>
+      <li>Primary: deep navy blue (#1E3A8A)</li>
+      <li>Accent: warm yellow (#FDE047) on star/check icons</li>
+      <li>Display font: Anton (condensed sans, very editorial)</li>
+      <li>Body font: Inter</li>
+      <li>Mood: established, corporate, trust-first</li>
+    </ul>
+  </div>
+</body>
+</html>

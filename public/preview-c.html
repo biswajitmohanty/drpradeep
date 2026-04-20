@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Style C — Teal editorial refined (current identity, elevated)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary: #0F766E;
+    --primary-dark: #115E59;
+    --primary-soft: #CCFBF1;
+    --accent: #C8954A;
+    --accent-soft: #FAEBC9;
+    --bg: #FAFAF7;
+    --surface: #FFFFFF;
+    --elevated: #F5F5F0;
+    --ink: #1A1A1A;
+    --muted: #525252;
+    --subtle: #737373;
+    --border: #DDDDD5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 17px; }
+  .display { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.01em; }
+
+  .preview-bar { position: sticky; top: 0; z-index: 50; background: #111; color: #fff; padding: 10px 24px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  .preview-bar a { color: #5EEAD4; text-decoration: none; margin-left: 16px; }
+  .preview-bar a.active { color: #fff; font-weight: 600; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 32px; max-width: 1200px; margin: 0 auto; }
+  .logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; display: flex; align-items: center; gap: 10px; color: var(--ink); }
+  .logo-mark { width: 32px; height: 32px; background: var(--primary); border-radius: 8px; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 16px; font-family: 'Inter', sans-serif; }
+  .nav-links { display: flex; gap: 36px; font-size: 14px; font-weight: 500; color: var(--muted); }
+  .nav-links a { text-decoration: none; color: inherit; }
+  .nav-links a.active { color: var(--primary); }
+  .nav-cta { background: var(--accent); color: #fff; padding: 10px 22px; border-radius: 6px; border: 0; font-weight: 500; font-size: 14px; cursor: pointer; box-shadow: 0 4px 12px rgba(200,149,74,0.3); }
+
+  /* Hero */
+  .hero { padding: 60px 0 100px; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px; align-items: center; }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--primary); margin-bottom: 24px; }
+  .eyebrow::before { content: ''; width: 24px; height: 1.5px; background: var(--primary); }
+
+  .hero-title { font-family: 'Fraunces', serif; font-size: clamp(48px, 6vw, 84px); font-weight: 400; line-height: 1.02; letter-spacing: -0.02em; margin-bottom: 28px; color: var(--ink); }
+  .hero-title em { font-style: italic; color: var(--primary); font-weight: 500; }
+  .hero-sub { color: var(--muted); font-size: 19px; max-width: 520px; margin-bottom: 36px; line-height: 1.6; }
+
+  .cta-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: #fff; padding: 14px 28px; border-radius: 8px; border: 0; font-weight: 500; font-size: 15px; cursor: pointer; box-shadow: 0 6px 18px rgba(200,149,74,0.28); display: inline-flex; align-items: center; gap: 10px; }
+  .btn-primary:hover { background: #B07D35; }
+  .btn-ghost { background: transparent; color: var(--primary); padding: 14px 28px; border-radius: 8px; font-weight: 500; font-size: 15px; border: 1.5px solid var(--primary); cursor: pointer; display: inline-flex; align-items: center; gap: 10px; }
+
+  .hero-meta { display: flex; gap: 40px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border); }
+  .hero-meta .item { display: flex; align-items: center; gap: 12px; }
+  .avatar-stack { display: flex; }
+  .avatar-stack img { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -8px; object-fit: cover; }
+  .avatar-stack img:first-child { margin-left: 0; }
+  .hero-meta .num { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; color: var(--ink); line-height: 1; }
+  .hero-meta .lbl { font-size: 12px; color: var(--subtle); margin-top: 2px; }
+  .hero-meta .divider { width: 1px; background: var(--border); align-self: stretch; }
+
+  .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 560px; }
+  .shape-primary { position: absolute; width: 420px; height: 480px; background: var(--primary-soft); border-radius: 48% 52% 50% 50% / 60% 50% 50% 40%; z-index: 0; }
+  .shape-accent { position: absolute; width: 140px; height: 140px; background: var(--accent-soft); border-radius: 50% 50% 48% 52% / 40% 60% 40% 60%; top: 20px; right: 20px; z-index: 1; }
+  .hero-photo { position: relative; z-index: 2; width: 420px; height: 560px; object-fit: cover; object-position: top; border-radius: 8px 8px 200px 200px; filter: drop-shadow(0 20px 48px rgba(15,118,110,0.18)); }
+  .floating-badge { position: absolute; bottom: 40px; left: -20px; background: #fff; padding: 14px 18px; border-radius: 12px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 12px; z-index: 3; }
+  .floating-badge .ic { width: 36px; height: 36px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .floating-badge .title { font-size: 13px; font-weight: 600; }
+  .floating-badge .sub { font-size: 11px; color: var(--subtle); }
+  .floating-quote { position: absolute; top: 40px; left: -40px; background: #fff; padding: 16px 18px; border-radius: 12px; box-shadow: 0 12px 28px rgba(0,0,0,0.08); z-index: 3; max-width: 220px; }
+  .floating-quote .stars { color: var(--accent); font-size: 14px; letter-spacing: 2px; margin-bottom: 6px; }
+  .floating-quote .text { font-size: 12px; line-height: 1.5; color: var(--muted); font-style: italic; }
+
+  /* Credential strip */
+  .credentials { background: var(--elevated); padding: 48px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .credentials-title { text-align: center; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--primary); margin-bottom: 8px; }
+  .credentials-underline { width: 40px; height: 2px; background: var(--accent); margin: 0 auto 32px; border-radius: 2px; }
+  .credentials-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+  .cred-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; display: flex; gap: 12px; align-items: center; min-width: 220px; box-shadow: 0 2px 6px rgba(15,23,42,0.04); transition: all 0.3s; }
+  .cred-item:hover { border-color: var(--primary); box-shadow: 0 8px 20px rgba(15,118,110,0.1); transform: translateY(-2px); }
+  .cred-icon { width: 40px; height: 40px; background: var(--primary-soft); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .cred-name { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .cred-role { font-size: 11px; color: var(--subtle); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+  /* Stats section */
+  .stats { padding: 80px 0; background: var(--elevated); }
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .stat-card { position: relative; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 32px; overflow: hidden; box-shadow: 0 2px 6px rgba(15,23,42,0.04); transition: all 0.3s; }
+  .stat-card:hover { box-shadow: 0 20px 40px rgba(15,23,42,0.1); transform: translateY(-4px); }
+  .stat-stripe { position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(to right, var(--primary), var(--accent), var(--primary)); }
+  .stat-ic { width: 48px; height: 48px; background: var(--primary); color: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(15,118,110,0.25); }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 44px; font-weight: 500; line-height: 1; letter-spacing: -0.01em; }
+  .stat-lbl { font-size: 14px; color: var(--muted); font-weight: 500; margin-top: 10px; }
+
+  /* About preview */
+  .about { padding: 100px 0; background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 60px; }
+  .about-quote { font-family: 'Fraunces', serif; font-size: 24px; line-height: 1.5; font-style: italic; color: var(--ink); border-left: 3px solid var(--accent); padding-left: 24px; margin-bottom: 32px; }
+  .about-attrib { font-size: 14px; color: var(--subtle); }
+
+  .style-note { max-width: 1200px; margin: 0 auto; padding: 40px 32px 80px; }
+  .style-note h2 { font-family: 'Fraunces', serif; font-size: 32px; margin-bottom: 12px; font-weight: 500; }
+  .style-note p { color: var(--muted); font-size: 16px; max-width: 680px; line-height: 1.7; }
+  .style-note ul { margin-top: 16px; padding-left: 20px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+</style>
+</head>
+<body>
+  <div class="preview-bar">
+    <div><strong>Style C</strong> — Teal editorial refined (current identity, elevated)</div>
+    <div>
+      <a href="/preview-a.html">A · Blue</a>
+      <a href="/preview-b.html">B · Purple/Yellow</a>
+      <a href="/preview-c.html" class="active">C · Teal editorial</a>
+      <a href="/">← Back to site</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo">
+      <span class="logo-mark">P</span>
+      Dr. Pradeep Sahoo
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">About</a>
+      <a href="#">Treatments</a>
+      <a href="#">Robotic Surgery</a>
+      <a href="#">Patient Stories</a>
+      <a href="#">Contact</a>
+    </div>
+    <button class="nav-cta">Book a Consultation</button>
+  </div>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Robotic-assisted joint replacement</span>
+        <h1 class="hero-title">Restoring movement with <em>robotic precision.</em></h1>
+        <p class="hero-sub">
+          Orthopaedic Surgeon &amp; Robotic Knee/Hip Replacement Specialist in Bhubaneswar.
+          11+ years of experience, Apollo Chennai and NHS UK trained.
+        </p>
+        <div class="cta-row">
+          <button class="btn-primary">Book a Consultation →</button>
+          <button class="btn-ghost">▶ How Robotic Surgery Works</button>
+        </div>
+        <div class="hero-meta">
+          <div class="item">
+            <div class="avatar-stack">
+              <img src="https://i.pravatar.cc/72?img=12" alt="" />
+              <img src="https://i.pravatar.cc/72?img=22" alt="" />
+              <img src="https://i.pravatar.cc/72?img=45" alt="" />
+            </div>
+            <div>
+              <div class="num">1,500+</div>
+              <div class="lbl">Successful Surgeries</div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="item">
+            <div>
+              <div class="num">11+</div>
+              <div class="lbl">Years of Experience</div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="item">
+            <div>
+              <div class="num" style="color: var(--primary);">NHS</div>
+              <div class="lbl">Fellowship trained</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="shape-primary"></div>
+        <div class="shape-accent"></div>
+        <img class="hero-photo" src="/images/doctor/robotic-smith-nephew.jpg" alt="Dr. Pradeep Kumar Sahoo" />
+        <div class="floating-quote">
+          <div class="stars">★★★★★</div>
+          <div class="text">"Walking pain-free six weeks after my robotic knee replacement." — Sanjay, 62</div>
+        </div>
+        <div class="floating-badge">
+          <div class="ic">✓</div>
+          <div>
+            <div class="title">Accepting patients</div>
+            <div class="sub">Mon–Sat · 9 AM – 10 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="credentials">
+    <div class="container">
+      <div class="credentials-title">Trained &amp; Certified At</div>
+      <div class="credentials-underline"></div>
+      <div class="credentials-list">
+        <div class="cred-item">
+          <div class="cred-icon">⚕</div>
+          <div>
+            <div class="cred-name">Apollo Hospital, Chennai</div>
+            <div class="cred-role">DNB Orthopaedics</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🏆</div>
+          <div>
+            <div class="cred-name">NHS, United Kingdom</div>
+            <div class="cred-role">Robotic Joint Replacement Fellow</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🎓</div>
+          <div>
+            <div class="cred-name">MKCG Medical College</div>
+            <div class="cred-role">MBBS</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-icon">🛡</div>
+          <div>
+            <div class="cred-name">AO Foundation</div>
+            <div class="cred-role">Trauma Management</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-stripe"></div>
+          <div class="stat-ic">⏱</div>
+          <div class="stat-num">11+</div>
+          <div class="stat-lbl">Years of experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-stripe"></div>
+          <div class="stat-ic">⚕</div>
+          <div class="stat-num">1,500+</div>
+          <div class="stat-lbl">Successful surgeries</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-stripe"></div>
+          <div class="stat-ic">🎓</div>
+          <div class="stat-num">NHS</div>
+          <div class="stat-lbl">Robotic surgery fellowship</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 class="display" style="font-size: 44px; line-height: 1.1;">A decade of restoring movement in Bhubaneswar.</h2>
+      </div>
+      <div>
+        <div class="about-quote">
+          "Knee or hip pain doesn't just slow you down — it changes how you live.
+          For over a decade, I've helped patients in Bhubaneswar return to walking,
+          working, and playing without pain. My approach combines the precision of
+          robotic-assisted surgery with the human judgment that only comes from
+          years at Apollo Chennai and an NHS fellowship in the UK."
+        </div>
+        <div class="about-attrib">— Dr. Pradeep Kumar Sahoo</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="style-note">
+    <h2>Style C — what it gives you</h2>
+    <p>
+      Keeps your current teal + gold DNA but dials it up: editorial serif headlines
+      (Fraunces), an organic shape behind the doctor photo, floating review + "accepting
+      patients" badges, and proper presence for the stats cards (top gradient stripe,
+      solid icon chips, shadow lift). Keeps the clinical-trust positioning without
+      looking default.
+    </p>
+    <ul>
+      <li>Primary: teal (#0F766E) — unchanged from current site</li>
+      <li>Accent: warm gold (#C8954A) — unchanged</li>
+      <li>Display: Fraunces serif (italic for emphasis)</li>
+      <li>Body: Inter</li>
+      <li>Mood: sophisticated, editorial, quietly confident — best fit for "senior specialist who doesn't need to shout"</li>
+    </ul>
+  </div>
+</body>
+</html>
