@@ -1,4 +1,5 @@
 import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
 import {
   Accordion,
   AccordionContent,
@@ -53,7 +54,7 @@ export function FAQ({
   return (
     <Section aria-labelledby="faq-heading">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-        <div className="lg:col-span-4">
+        <Reveal className="lg:col-span-4">
           <span className="eyebrow">{eyebrow}</span>
           <h2
             id="faq-heading"
@@ -65,8 +66,8 @@ export function FAQ({
             Still unsure? A consultation is the fastest way to get a clear,
             personalised answer.
           </p>
-        </div>
-        <div className="lg:col-span-8">
+        </Reveal>
+        <Reveal delay={0.1} className="lg:col-span-8">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, i) => (
               <AccordionItem key={faq.question} value={`faq-${i}`}>
@@ -75,7 +76,7 @@ export function FAQ({
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </Reveal>
       </div>
       {includeSchema ? (
         <script

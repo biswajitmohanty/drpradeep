@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { ArrowRight, MessageCircle, Phone } from "lucide-react";
 import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
 import { DOCTOR, whatsappLink, telLink } from "@/lib/constants";
 
 export function CtaSection() {
   return (
     <Section aria-labelledby="cta-heading">
-      <div className="relative overflow-hidden rounded-xl bg-primary text-white">
+      <Reveal className="relative overflow-hidden rounded-xl bg-primary text-white">
         <div
           className="absolute inset-0 opacity-30 pointer-events-none"
           style={{
@@ -56,7 +57,7 @@ export function CtaSection() {
             </a>
           </div>
         </div>
-      </div>
+      </Reveal>
     </Section>
   );
 }

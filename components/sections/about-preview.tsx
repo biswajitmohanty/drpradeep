@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
 import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
 import { DOCTOR, STATS } from "@/lib/constants";
 
 export function AboutPreview() {
@@ -11,7 +12,7 @@ export function AboutPreview() {
   return (
     <Section variant="default" aria-labelledby="about-preview-heading">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16 items-center">
-        <div className="relative">
+        <Reveal className="relative">
           <div className="relative mx-auto max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden bg-brand-yellow-soft">
             <div
               aria-hidden="true"
@@ -64,9 +65,9 @@ export function AboutPreview() {
               {surgeries?.label ?? "surgeries"}
             </span>
           </div>
-        </div>
+        </Reveal>
 
-        <div>
+        <Reveal delay={0.15}>
           <h2
             id="about-preview-heading"
             className="flex items-center gap-3 font-display text-h2 md:text-h1 font-medium text-text-primary text-balance"
@@ -102,7 +103,7 @@ export function AboutPreview() {
             Learn More
             <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );

@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
 
 interface FeaturedTestimonial {
   name: string;
@@ -58,7 +59,7 @@ const featured: FeaturedTestimonial[] = [
 export function Testimonials() {
   return (
     <Section variant="default" aria-labelledby="testimonials-heading">
-      <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+      <Reveal className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
         <span className="inline-flex items-center gap-2 rounded-full bg-brand-purple-soft px-4 py-1.5 text-caption font-semibold text-brand-purple-dark">
           Patient Stories
         </span>
@@ -71,13 +72,13 @@ export function Testimonials() {
             about Dr. Sahoo
           </span>
         </h2>
-      </div>
+      </Reveal>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
-        {featured.map((t) => (
+        {featured.map((t, i) => (
+          <Reveal key={t.name} delay={i * 0.1}>
           <figure
-            key={t.name}
-            className="flex flex-col gap-4 rounded-2xl bg-surface border border-border p-6 md:p-7 shadow-[0_2px_8px_rgba(17,24,39,0.04)] hover:shadow-[0_12px_32px_rgba(124,58,237,0.1)] hover:border-brand-purple/30 transition-all duration-300 ease-smooth"
+            className="flex h-full flex-col gap-4 rounded-2xl bg-surface border border-border p-6 md:p-7 shadow-[0_2px_8px_rgba(17,24,39,0.04)] hover:shadow-[0_12px_32px_rgba(124,58,237,0.1)] hover:border-brand-purple/30 hover:-translate-y-0.5 transition-all duration-300 ease-smooth"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
@@ -119,6 +120,7 @@ export function Testimonials() {
               </p>
             </figcaption>
           </figure>
+          </Reveal>
         ))}
       </div>
 

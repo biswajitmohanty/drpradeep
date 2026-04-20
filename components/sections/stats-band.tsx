@@ -1,6 +1,7 @@
 import { Award, Clock, GraduationCap, Stethoscope } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { StatCard } from "@/components/shared/stat-card";
+import { Reveal } from "@/components/shared/reveal";
 import { STATS } from "@/lib/constants";
 import { getGoogleReviewSummary } from "@/lib/google-reviews";
 
@@ -31,18 +32,19 @@ export async function StatsBand() {
   return (
     <Section variant="elevated" size="sm" aria-label="Key statistics">
       <div className={`grid grid-cols-2 ${cols} gap-4 md:gap-6`}>
-        {cards.map((s) => (
-          <StatCard
-            key={s.label}
-            value={s.value}
-            label={s.label}
-            icon={
-              iconsByLabel[s.label] ??
-              (s.label.startsWith("Google rating") ? (
-                <Award size={20} />
-              ) : undefined)
-            }
-          />
+        {cards.map((s, i) => (
+          <Reveal key={s.label} delay={i * 0.1}>
+            <StatCard
+              value={s.value}
+              label={s.label}
+              icon={
+                iconsByLabel[s.label] ??
+                (s.label.startsWith("Google rating") ? (
+                  <Award size={20} />
+                ) : undefined)
+              }
+            />
+          </Reveal>
         ))}
       </div>
     </Section>

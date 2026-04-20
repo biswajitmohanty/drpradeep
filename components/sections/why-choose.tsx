@@ -1,4 +1,5 @@
 import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
 import { GraduationCap, Stethoscope, MapPinned, HeartHandshake } from "lucide-react";
 
 const differentiators = [
@@ -27,7 +28,7 @@ const differentiators = [
 export function WhyChoose() {
   return (
     <Section variant="primary-soft" aria-labelledby="why-heading">
-      <div className="max-w-2xl mb-10 md:mb-14">
+      <Reveal className="max-w-2xl mb-10 md:mb-14">
         <span className="eyebrow">Why Dr. Sahoo</span>
         <h2
           id="why-heading"
@@ -35,15 +36,16 @@ export function WhyChoose() {
         >
           Experience you can verify, judgment you can trust.
         </h2>
-      </div>
+      </Reveal>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-        {differentiators.map((d) => {
+        {differentiators.map((d, i) => {
           const Icon = d.icon;
           return (
-            <div
+            <Reveal
               key={d.title}
-              className="flex gap-5 rounded-lg bg-surface border border-border p-6 md:p-7 shadow-sm"
+              delay={i * 0.08}
+              className="flex h-full gap-5 rounded-lg bg-surface border border-border p-6 md:p-7 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             >
               <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md bg-primary text-white">
                 <Icon size={22} strokeWidth={1.75} />
@@ -56,7 +58,7 @@ export function WhyChoose() {
                   {d.body}
                 </p>
               </div>
-            </div>
+            </Reveal>
           );
         })}
       </div>
