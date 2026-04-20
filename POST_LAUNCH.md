@@ -5,13 +5,15 @@ content, decisions, and accounts are in place.
 
 ## Content
 
-- [ ] Replace placeholder SVGs in `public/images/doctor/` with real photography
-  (portrait + operating theatre / clinic candids).
-- [ ] Replace placeholder SVG in `public/images/treatments/robotic-surgery.svg`
-  with either a real OT photo or a branded anatomical illustration.
-- [ ] Add hospital and institution logos to `public/images/credentials/`
-  (Elite Ortho Care, Apollo, NHS, MKCG Medical College, DNB,
-  AO Foundation).
+- [x] Real photography wired: `public/images/brand/logo.png`,
+  `public/images/doctor/robotic-smith-nephew.jpg`,
+  `public/images/doctor/robotic-velys.jpg`,
+  `public/images/doctor/ot-team.jpg`.
+- [ ] Source hospital / institution **logo files** (Apollo, NHS, MKCG,
+  AO Foundation, FIFA Sports Medicine). Until then the credentials trust
+  strip renders as text chips.
+- [ ] Optional: short explainer video for `/robotic-surgery` (currently a
+  still frame of the Smith+Nephew platform).
 - [ ] Replace placeholder patient testimonials in
   `content/testimonials/testimonials.json` with real, consented stories.
 - [ ] Verify real surgery counts, patient rating, and any other stats in

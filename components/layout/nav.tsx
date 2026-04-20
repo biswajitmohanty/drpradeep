@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
@@ -52,14 +53,24 @@ export function Nav() {
       <div className="container-page flex h-16 md:h-20 items-center justify-between gap-6">
         <Link
           href="/"
-          className="flex flex-col leading-tight"
+          className="flex items-center gap-3 leading-tight"
           aria-label={`${DOCTOR.name} — Home`}
         >
-          <span className="font-display text-[1.05rem] md:text-lg font-semibold text-text-primary">
-            {DOCTOR.name}
-          </span>
-          <span className="hidden sm:block text-caption text-text-muted">
-            {DOCTOR.subSpecialty}
+          <Image
+            src="/images/brand/logo.png"
+            alt=""
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-9 md:h-10 md:w-10 flex-shrink-0"
+          />
+          <span className="flex flex-col leading-tight">
+            <span className="font-display text-[1.05rem] md:text-lg font-semibold text-text-primary">
+              {DOCTOR.name}
+            </span>
+            <span className="hidden sm:block text-caption text-text-muted">
+              {DOCTOR.subSpecialty}
+            </span>
           </span>
         </Link>
 

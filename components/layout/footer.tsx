@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
 import {
   CLINICS,
@@ -16,6 +17,13 @@ export function Footer() {
       <div className="container-page py-14 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="lg:col-span-1">
+            <Image
+              src="/images/brand/logo.png"
+              alt=""
+              width={56}
+              height={56}
+              className="h-12 w-12 mb-4"
+            />
             <h3 className="font-display text-h3 text-text-primary leading-tight">
               {DOCTOR.name}
             </h3>

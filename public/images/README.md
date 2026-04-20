@@ -5,34 +5,30 @@ real photography and illustrations are sourced. Replace each file listed below
 with its production asset — keep the same filename so no code changes are
 needed.
 
-## Required assets
+## Current assets
+
+### `/brand`
+
+| Filename   | Purpose                                   |
+|------------|-------------------------------------------|
+| `logo.png` | Clinic / doctor brand mark used in nav + footer. Transparent background, ~512×512. |
 
 ### `/doctor`
 
-| Filename           | Purpose                                   | Format | Dimensions         | Notes |
-|--------------------|-------------------------------------------|--------|--------------------|-------|
-| `portrait.svg`     | Homepage hero + About hero portrait       | JPG/WebP | 1000×1250 (4:5)  | Natural lighting, clinic / OT backdrop. Replace SVG with `portrait.jpg` and update the `<Image src>` path. |
+| Filename                    | Purpose                                                                |
+|-----------------------------|------------------------------------------------------------------------|
+| `robotic-smith-nephew.jpg`  | Homepage hero, About hero, Robotic Surgery page inset (primary portrait). Dr. Sahoo with the Smith+Nephew CORI platform. |
+| `robotic-velys.jpg`         | Robotic Surgery showcase on the homepage (VELYS / DePuy Synthes). |
+| `ot-team.jpg`               | About page "Team" block — wide panorama of Dr. Sahoo and the OT team. |
 
-### `/credentials`
+## Still to add
 
-_(to be populated)_ Logo files for Elite Ortho Care, Apollo, NHS, MKCG
-Medical College, DNB, AO Foundation. SVG preferred, transparent background.
-
-### `/treatments`
-
-| Filename                | Purpose                                  | Format | Notes |
-|-------------------------|------------------------------------------|--------|-------|
-| `robotic-surgery.svg`   | Robotic surgery showcase section visual  | SVG illustration or surgery photo | Replace with real OR photo / branded anatomical illustration |
-
-### `/og`
-
-_(Phase 4)_ Static OG image fallbacks. Phase 4 will add `app/opengraph-image.tsx`
-that generates these dynamically via `@vercel/og`.
-
-## Placeholder policy
-
-All current SVGs in this directory labeled `PLACEHOLDER` must be replaced
-before launch. They exist only so the site renders cleanly during development.
+- Hospital & institution **logo** files (Apollo, NHS, MKCG, AO, FIFA). Until
+  added, the credentials trust strip renders as styled text chips.
+- Short **explainer video** for `/robotic-surgery` (currently the Smith+Nephew
+  still frame stands in).
+- Static OG image fallbacks under `/og/` (the dynamic OG image at
+  `app/opengraph-image.tsx` covers the default case).
 
 ## Image optimization
 

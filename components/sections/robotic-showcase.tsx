@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Target, Activity, Clock3 } from "lucide-react";
 import { Section } from "@/components/shared/section";
+import { DOCTOR } from "@/lib/constants";
 
 const highlights = [
   {
@@ -62,18 +63,18 @@ export function RoboticShowcase() {
         </div>
 
         <div className="lg:col-span-6">
-          <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/10 to-primary-soft/40">
+          <div className="relative aspect-[4/5] md:aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/10 to-primary-soft/40">
             <Image
-              src="/images/treatments/robotic-surgery.svg"
-              alt="Illustration of robotic-assisted joint replacement surgery"
+              src="/images/doctor/robotic-velys.jpg"
+              alt={`${DOCTOR.name} with the VELYS robotic-assisted solution (DePuy Synthes)`}
               fill
               sizes="(min-width: 1024px) 50vw, 90vw"
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
           <p className="mt-3 text-caption text-text-muted text-center">
-            Illustrative. Dr. Sahoo performs robotic-assisted procedures at
-            equipped partner hospitals in Bhubaneswar.
+            Dr. Sahoo performs robotic-assisted procedures on Smith+Nephew and
+            VELYS platforms at equipped partner hospitals in Bhubaneswar.
           </p>
         </div>
       </div>

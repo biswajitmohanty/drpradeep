@@ -43,12 +43,12 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent-soft/40 border border-border shadow-lg">
               <Image
-                src="/images/doctor/portrait.svg"
-                alt={`Portrait of ${DOCTOR.name}`}
+                src="/images/doctor/robotic-smith-nephew.jpg"
+                alt={`${DOCTOR.name} with the Smith+Nephew robotic surgery platform`}
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, 90vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           </div>
@@ -93,6 +93,33 @@ export default function AboutPage() {
             <p className="text-body-sm text-text-muted">— {DOCTOR.name}</p>
           </div>
         </div>
+      </Section>
+
+      <Section aria-labelledby="team-heading" size="sm">
+        <div className="max-w-2xl mb-8">
+          <span className="eyebrow">The team</span>
+          <h2
+            id="team-heading"
+            className="mt-3 font-display text-h2 font-medium text-text-primary text-balance"
+          >
+            Expert hands. One team. One goal — your recovery.
+          </h2>
+        </div>
+        <div className="relative w-full aspect-[24/8] md:aspect-[24/7] rounded-xl overflow-hidden border border-border shadow-md bg-surface-elevated">
+          <Image
+            src="/images/doctor/ot-team.jpg"
+            alt={`${DOCTOR.name} with the operating-theatre team in Bhubaneswar`}
+            fill
+            sizes="(min-width: 1024px) 100vw, 100vw"
+            className="object-cover object-center"
+          />
+        </div>
+        <p className="mt-3 text-caption text-text-muted text-center">
+          A joint replacement is never one surgeon&apos;s work. Dr. Sahoo
+          operates with a consistent team — anaesthetists, OT technicians,
+          and scrub nurses — trained specifically in robotic-assisted
+          protocols.
+        </p>
       </Section>
 
       <Section aria-labelledby="education-heading">
