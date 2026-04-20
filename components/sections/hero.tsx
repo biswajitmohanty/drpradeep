@@ -104,56 +104,50 @@ export function Hero() {
             </motion.div>
           </div>
 
-          <div className="order-1 lg:order-2 relative flex justify-center items-center min-h-[520px]">
+          <div className="order-1 lg:order-2 relative flex justify-center items-center min-h-[380px] md:min-h-[520px]">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              aria-hidden="true"
-              className="absolute z-0 h-[380px] w-[380px] md:h-[460px] md:w-[460px] bg-brand-yellow"
-              style={{
-                borderRadius: "50% 48% 52% 50% / 48% 50% 50% 52%",
-              }}
-            />
-            <motion.span
-              aria-hidden="true"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="absolute z-10 h-20 w-20 rounded-full bg-brand-purple"
-              style={{ top: "8%", right: "8%" }}
-            />
-            <motion.span
-              aria-hidden="true"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-              className="absolute z-10 h-6 w-6 rounded-full bg-brand-purple"
-              style={{ bottom: "15%", left: "8%" }}
-            />
-            <motion.span
-              aria-hidden="true"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.55 }}
-              className="absolute z-10 h-4 w-4 rounded-full bg-brand-yellow-soft border-2 border-brand-purple"
-              style={{ top: "35%", left: "5%" }}
-            />
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative z-20"
+              className="relative h-[360px] w-[360px] md:h-[480px] md:w-[480px]"
             >
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full bg-brand-yellow"
+              />
+
               <Image
                 src="/images/doctor/robotic-smith-nephew.jpg"
-                alt={`${DOCTOR.name}`}
-                width={420}
-                height={520}
+                alt={DOCTOR.name}
+                fill
                 priority
-                sizes="(min-width: 1024px) 40vw, 90vw"
-                className="relative z-20 h-[460px] w-[360px] md:h-[520px] md:w-[420px] object-cover object-top drop-shadow-[0_20px_40px_rgba(124,58,237,0.25)]"
+                sizes="(min-width: 768px) 480px, 360px"
+                className="relative z-10 rounded-full object-cover object-top drop-shadow-[0_20px_40px_rgba(124,58,237,0.25)]"
+              />
+
+              <motion.span
+                aria-hidden="true"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute z-20 h-16 w-16 md:h-20 md:w-20 rounded-full bg-brand-purple shadow-lg"
+                style={{ top: "-4%", right: "4%" }}
+              />
+              <motion.span
+                aria-hidden="true"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.45 }}
+                className="absolute z-20 h-5 w-5 md:h-6 md:w-6 rounded-full bg-brand-purple"
+                style={{ bottom: "6%", left: "-2%" }}
+              />
+              <motion.span
+                aria-hidden="true"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.55 }}
+                className="absolute z-20 h-4 w-4 rounded-full bg-brand-yellow-soft border-2 border-brand-purple"
+                style={{ top: "40%", left: "-5%" }}
               />
             </motion.div>
           </div>
