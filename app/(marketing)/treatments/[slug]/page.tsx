@@ -8,7 +8,6 @@ import {
   Check,
   ClipboardList,
   Clock,
-  IndianRupee,
 } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { TreatmentCard } from "@/components/shared/treatment-card";
@@ -23,7 +22,7 @@ import {
   buildFAQSchema,
   buildMedicalProcedureSchema,
 } from "@/lib/schema";
-import { KNEE_REPLACEMENT_PRICING, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -222,66 +221,6 @@ export default async function TreatmentPage({ params }: Props) {
           ))}
         </ol>
       </Section>
-
-      {slug === "knee-replacement" ? (
-        <Section aria-labelledby="pricing-heading">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-4">
-              <span className="eyebrow inline-flex items-center gap-2">
-                <IndianRupee size={14} /> Treatment cost
-              </span>
-              <h2
-                id="pricing-heading"
-                className="mt-3 font-display text-h2 font-medium text-text-primary text-balance"
-              >
-                Transparent pricing, no surprises.
-              </h2>
-              <p className="mt-4 text-body-sm text-text-secondary text-pretty">
-                {KNEE_REPLACEMENT_PRICING.note}
-              </p>
-              <p className="mt-4 text-caption text-text-muted">
-                Costs vary based on:
-              </p>
-              <ul className="mt-2 list-disc pl-5 space-y-1 text-caption text-text-muted">
-                {KNEE_REPLACEMENT_PRICING.factors.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:col-span-8">
-              <div className="rounded-xl border border-border bg-surface overflow-hidden">
-                <div className="grid grid-cols-[1.6fr_1fr] bg-surface-elevated border-b border-border">
-                  <div className="p-4 md:p-5 text-caption uppercase tracking-[0.1em] text-text-muted font-medium">
-                    Procedure
-                  </div>
-                  <div className="p-4 md:p-5 text-caption uppercase tracking-[0.1em] text-text-muted font-medium text-right">
-                    Cost range (INR)
-                  </div>
-                </div>
-                {KNEE_REPLACEMENT_PRICING.rows.map((r, i) => (
-                  <div
-                    key={r.procedure}
-                    className={`grid grid-cols-[1.6fr_1fr] border-b border-border last:border-b-0 ${
-                      i % 2 === 1 ? "bg-surface-elevated/40" : "bg-surface"
-                    }`}
-                  >
-                    <div className="p-4 md:p-5 text-body-sm text-text-primary font-medium">
-                      {r.procedure}
-                    </div>
-                    <div className="p-4 md:p-5 text-body-sm font-mono text-text-primary text-right">
-                      {r.range}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-4 text-caption text-text-muted">
-                A Partial Knee Replacement (PKR) typically costs 10–20% less
-                than a Total Knee Replacement (TKR).
-              </p>
-            </div>
-          </div>
-        </Section>
-      ) : null}
 
       <Section variant="elevated" aria-labelledby="risks-heading">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">

@@ -117,30 +117,31 @@ export const STATS = [
 export const CONSULTATION_FEE_INR = 1000;
 
 export const KNEE_REPLACEMENT_PRICING = {
-  note: "Ranges for total implant + surgery + hospital stay in Bhubaneswar. Exact cost depends on method of surgery, implant choice, and hospital stay. Most major health insurance policies cover robotic knee replacement.",
+  averageRangeLow: "\u20B91,60,000",
+  averageRangeHigh: "\u20B95,00,000",
   rows: [
     {
-      procedure: "Total Knee Replacement — one side",
+      procedure: "Total Knee Replacement (One Side)",
       range: "\u20B91,80,000 \u2013 \u20B92,60,000",
     },
     {
-      procedure: "Total Knee Replacement — both sides",
+      procedure: "Total Knee Replacement (Both Side)",
       range: "\u20B93,80,000 \u2013 \u20B94,80,000",
     },
     {
-      procedure: "Partial Knee Replacement — one side",
+      procedure: "Partial Knee Replacement (One Side)",
       range: "\u20B91,50,000 \u2013 \u20B92,20,000",
     },
     {
-      procedure: "Partial Knee Replacement — both sides",
+      procedure: "Partial Knee Replacement (Both Side)",
       range: "\u20B92,70,000 \u2013 \u20B93,60,000",
     },
   ],
   factors: [
-    "Method of surgery (robotic-assisted vs conventional)",
-    "Implant manufacturer and design",
+    "Method of surgery",
+    "Cost of implant",
     "Partial vs total knee replacement",
-    "Length of hospital stay",
+    "Hospital stay",
   ],
 } as const;
 
