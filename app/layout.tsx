@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Caveat, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { SITE, DOCTOR } from "@/lib/constants";
 import { buildPhysicianSchema, buildOrganizationSchema } from "@/lib/schema";
 import { Analytics } from "@/components/analytics";
@@ -23,6 +23,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
   weight: ["500"],
   variable: "--font-mono",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "700"],
+  variable: "--font-script",
 });
 
 export const viewport: Viewport = {
@@ -88,7 +95,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
-      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} ${caveat.variable}`}
     >
       <body>
         <a
