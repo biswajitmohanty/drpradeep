@@ -5,10 +5,12 @@ import { StatsBand } from "@/components/sections/stats-band";
 import { AboutPreview } from "@/components/sections/about-preview";
 import { RoboticShowcase } from "@/components/sections/robotic-showcase";
 import { TreatmentsGrid } from "@/components/sections/treatments-grid";
+import { KneePricing } from "@/components/sections/knee-pricing";
 import { Testimonials } from "@/components/sections/testimonials";
 import { WhyChoose } from "@/components/sections/why-choose";
 import { CtaSection } from "@/components/sections/cta-section";
 import { FAQ } from "@/components/sections/faq";
+import { VideosSection } from "@/components/sections/videos-section";
 import { buildAggregateRatingSchema } from "@/lib/schema";
 import { DOCTOR, SITE } from "@/lib/constants";
 import { getGoogleReviewSummary } from "@/lib/google-reviews";
@@ -36,10 +38,12 @@ export default async function HomePage() {
       <AboutPreview />
       <RoboticShowcase />
       <TreatmentsGrid />
+      <KneePricing />
       <Testimonials />
       <WhyChoose />
       <CtaSection />
       <FAQ />
+      <VideosSection />
 
       {aggregateRating ? (
         <script
