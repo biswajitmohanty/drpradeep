@@ -102,8 +102,8 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "pulse-soft": {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(200, 149, 74, 0.4)" },
-          "50%": { boxShadow: "0 0 0 12px rgba(200, 149, 74, 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.4)" },
+          "50%": { boxShadow: "0 0 0 12px rgba(37, 211, 102, 0)" },
         },
         "accordion-down": {
           "0%": { height: "0" },
