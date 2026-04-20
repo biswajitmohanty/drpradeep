@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { DOCTOR } from "@/lib/constants";

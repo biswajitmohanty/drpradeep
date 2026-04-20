@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, GraduationCap, Hospital, Languages, Award } from "lucide-react";
 import { Section } from "@/components/shared/section";

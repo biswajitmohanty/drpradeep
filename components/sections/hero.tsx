@@ -1,10 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { DOCTOR } from "@/lib/constants";
 
 const fadeUp = {
@@ -13,8 +12,6 @@ const fadeUp = {
 };
 
 export function Hero() {
-  const t = useTranslations("hero");
-
   return (
     <section className="relative overflow-hidden bg-bg">
       <div
@@ -38,7 +35,7 @@ export function Hero() {
                 className="eyebrow inline-flex items-center gap-2"
               >
                 <Sparkles size={14} />
-                {t("eyebrow")}
+                Robotic-assisted joint replacement
               </motion.span>
 
               <motion.h1
@@ -46,7 +43,7 @@ export function Hero() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-5 font-display font-medium text-h1 md:text-[3rem] lg:text-display text-text-primary text-balance"
               >
-                {t("headline")}
+                Restoring movement with robotic precision.
               </motion.h1>
 
               <motion.p
@@ -54,10 +51,9 @@ export function Hero() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-6 text-body-lg text-text-secondary max-w-xl text-pretty"
               >
-                {t("subheadline", {
-                  name: DOCTOR.name,
-                  years: DOCTOR.experienceYears,
-                })}
+                {DOCTOR.name} — Robotic Knee &amp; Hip Replacement Surgeon in
+                Bhubaneswar. {DOCTOR.experienceYears}+ years of experience.
+                Trained at Apollo Chennai and the NHS, UK.
               </motion.p>
 
               <motion.div
@@ -66,12 +62,12 @@ export function Hero() {
                 className="mt-8 flex flex-wrap items-center gap-3"
               >
                 <Link href="/book" className="btn-primary">
-                  {t("primaryCta")}
+                  Book a Consultation
                   <ArrowRight size={18} />
                 </Link>
                 <Link href="/robotic-surgery" className="btn-secondary">
                   <Play size={16} />
-                  {t("secondaryCta")}
+                  Watch How Robotic Surgery Works
                 </Link>
               </motion.div>
 
@@ -82,10 +78,10 @@ export function Hero() {
               >
                 <span className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-success" />
-                  {t("acceptingPatients")}
+                  Accepting new patients
                 </span>
-                <span>{t("singleLocation")}</span>
-                <span>{t("languages")}</span>
+                <span>Two clinic locations in Bhubaneswar</span>
+                <span>Languages: English, Hindi, Odia</span>
               </motion.div>
             </motion.div>
           </div>

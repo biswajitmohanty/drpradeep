@@ -1,29 +1,19 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
-import { DOCTOR, TREATMENTS } from "@/lib/constants";
+import { NAV_LINKS, DOCTOR, TREATMENTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { MobileNav } from "./mobile-nav";
-import { LanguageSwitcher } from "./language-switcher";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations("nav");
-
-  const NAV: { href: string; label: string }[] = [
-    { href: "/about", label: t("about") },
-    { href: "/treatments", label: t("treatments") },
-    { href: "/robotic-surgery", label: t("roboticSurgery") },
-    { href: "/patient-stories", label: t("patientStories") },
-    { href: "/contact", label: t("contact") },
-  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -64,7 +54,7 @@ export function Nav() {
         <Link
           href="/"
           className="flex items-center gap-3 leading-tight"
-          aria-label={`${DOCTOR.name} — ${t("home")}`}
+          aria-label={`${DOCTOR.name} — Home`}
         >
           <Image
             src="/images/brand/logo.png"
@@ -85,7 +75,7 @@ export function Nav() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6" aria-label="Primary">
-          {NAV.map((link) => {
+          {NAV_LINKS.map((link) => {
             const active =
               pathname === link.href ||
               (link.href !== "/" && pathname.startsWith(link.href));
@@ -135,17 +125,17 @@ export function Nav() {
                         role="menuitem"
                         className="block px-3 py-2 rounded-md text-body-sm font-medium text-text-primary hover:bg-primary-soft transition-colors"
                       >
-                        {t("allTreatments")} →
+                        All treatments →
                       </Link>
                       <div className="my-1 border-t border-divider" />
-                      {TREATMENTS.map((tr) => (
+                      {TREATMENTS.map((t) => (
                         <Link
-                          key={tr.slug}
-                          href={`/treatments/${tr.slug}`}
+                          key={t.slug}
+                          href={`/treatments/${t.slug}`}
                           role="menuitem"
                           className="block px-3 py-2 rounded-md text-body-sm text-text-secondary hover:bg-primary-soft hover:text-text-primary transition-colors"
                         >
-                          {tr.title}
+                          {t.title}
                         </Link>
                       ))}
                     </div>
@@ -172,12 +162,11 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <LanguageSwitcher />
           <Link
             href="/book"
             className="hidden md:inline-flex btn-primary !py-2.5 !px-5 text-body-sm"
           >
-            {t("bookAppointment")}
+            Book Appointment
           </Link>
           <MobileNav />
         </div>
