@@ -59,12 +59,17 @@ export function CredentialsStrip() {
           <div className="mt-3 mx-auto h-0.5 w-12 rounded-full bg-accent" />
         </Reveal>
 
-        <ul className="flex flex-wrap justify-center gap-4 md:gap-5">
+        <ul className="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-3 md:gap-5 max-w-md md:max-w-none mx-auto">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
-              <Reveal key={item.name} delay={i * 0.08} as="li">
-                <div className="group flex items-center gap-3 rounded-xl border border-border bg-surface px-5 py-4 shadow-sm transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40 min-w-[220px]">
+              <Reveal
+                key={item.name}
+                delay={i * 0.08}
+                as="li"
+                className="w-full md:w-auto"
+              >
+                <div className="group flex items-center gap-3 rounded-xl border border-border bg-surface px-5 py-4 shadow-sm transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:shadow-md hover:border-primary/40 w-full md:w-auto md:min-w-[220px]">
                   <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-primary-soft text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
                     <Icon size={20} strokeWidth={1.75} />
                   </span>
