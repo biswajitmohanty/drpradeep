@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { DOCTOR } from "@/lib/constants";
 
 const fadeUp = {
@@ -27,65 +27,42 @@ export function Hero() {
               <motion.span
                 variants={fadeUp}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-flex items-center gap-2 rounded-full bg-brand-yellow-soft px-4 py-1.5 text-caption font-semibold text-[#92400E]"
+                className="eyebrow inline-flex items-center gap-2"
               >
-                <Star size={14} className="fill-brand-yellow text-brand-yellow" strokeWidth={0} />
-                NHS Robotic Surgery Fellow
+                <Sparkles size={14} />
+                Robotic-assisted joint replacement
               </motion.span>
 
               <motion.h1
                 variants={fadeUp}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-6 font-display font-medium text-h1 md:text-[3.25rem] lg:text-[4rem] leading-[1.05] text-text-primary text-balance"
+                className="mt-5 font-display font-medium text-h1 md:text-[3rem] lg:text-display leading-[1.05] text-text-primary text-balance"
               >
-                Welcome to{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10 rounded-lg bg-brand-purple-soft px-3 py-0.5 text-brand-purple-dark">
-                    {DOCTOR.name}
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-0 right-0 -bottom-2 h-3"
-                    style={{
-                      backgroundImage:
-                        "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14'><path d='M2 9C50 3 100 3 198 9' stroke='%237C3AED' stroke-width='2.5' fill='none' stroke-linecap='round'/></svg>\")",
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "100% 100%",
-                    }}
-                  />
-                </span>
-                <br />
-                Orthopaedic Surgeon
+                Restoring movement with robotic precision.
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-7 text-body-lg text-text-secondary max-w-xl text-pretty leading-relaxed"
+                className="mt-6 text-body-lg text-text-secondary max-w-xl text-pretty leading-relaxed"
               >
-                You came to the right place. Robotic-assisted knee &amp; hip
-                replacement with sub-millimeter precision.{" "}
-                {DOCTOR.experienceYears}+ years restoring movement to patients
-                across Odisha — trained at Apollo Chennai and the NHS, UK.
+                {DOCTOR.name} — Robotic Knee &amp; Hip Replacement Surgeon in
+                Bhubaneswar. {DOCTOR.experienceYears}+ years of experience.
+                Trained at Apollo Chennai and the NHS, UK.
               </motion.p>
 
               <motion.div
                 variants={fadeUp}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-9 flex flex-wrap items-center gap-3"
+                className="mt-8 flex flex-wrap items-center gap-3"
               >
-                <Link
-                  href="/book"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand-purple px-7 py-3.5 text-body-sm font-semibold text-white shadow-[0_8px_24px_rgba(124,58,237,0.35)] transition-all duration-300 ease-smooth hover:bg-brand-purple-dark hover:-translate-y-0.5"
-                >
-                  Book an Appointment
+                <Link href="/book" className="btn-primary">
+                  Book a Consultation
                   <ArrowRight size={16} />
                 </Link>
-                <Link
-                  href="/robotic-surgery"
-                  className="inline-flex items-center gap-2 rounded-full border border-text-primary px-7 py-3.5 text-body-sm font-semibold text-text-primary transition-colors duration-300 hover:bg-text-primary hover:text-white"
-                >
-                  Watch Robotic Surgery
+                <Link href="/robotic-surgery" className="btn-secondary">
+                  <Play size={16} />
+                  Watch How Robotic Surgery Works
                 </Link>
               </motion.div>
 
