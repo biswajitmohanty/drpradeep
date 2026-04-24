@@ -48,7 +48,7 @@ export default function BookPage() {
 
           <aside className="lg:col-span-5 space-y-6" aria-label="Clinic information">
             <div className="rounded-xl bg-accent-soft/50 border border-accent/30 p-6 md:p-7 flex items-start gap-4">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-accent text-white flex-shrink-0">
+              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-accent text-text-primary flex-shrink-0">
                 <IndianRupee size={20} />
               </span>
               <div>

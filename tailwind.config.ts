@@ -46,11 +46,20 @@ const config: Config = {
         success: "var(--color-success)",
         warning: "var(--color-warning)",
         danger: "var(--color-danger)",
+        brand: {
+          purple: "#7C3AED",
+          "purple-dark": "#5B21B6",
+          "purple-soft": "#EDE9FE",
+          yellow: "#FACC15",
+          "yellow-soft": "#FEF3C7",
+          cream: "#FAF8F3",
+        },
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        script: ["var(--font-script)", "cursive"],
       },
       fontSize: {
         display: ["3.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
@@ -93,8 +102,8 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "pulse-soft": {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(200, 149, 74, 0.4)" },
-          "50%": { boxShadow: "0 0 0 12px rgba(200, 149, 74, 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.4)" },
+          "50%": { boxShadow: "0 0 0 12px rgba(37, 211, 102, 0)" },
         },
         "accordion-down": {
           "0%": { height: "0" },

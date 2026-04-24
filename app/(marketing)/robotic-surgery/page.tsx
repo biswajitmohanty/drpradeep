@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Check, X, Sparkles } from "lucide-react";
 import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
 import {
   Accordion,
   AccordionContent,
@@ -291,21 +292,20 @@ export default function RoboticSurgeryPage() {
         </div>
 
         <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
-          {procedureSteps.map((s) => (
-            <li
-              key={s.step}
-              className="rounded-lg bg-surface border border-border p-5 md:p-6 flex flex-col gap-3"
-            >
-              <span className="font-mono text-caption tracking-[0.15em] text-primary">
-                {s.step}
-              </span>
-              <h3 className="font-display text-h4 font-medium text-text-primary text-balance">
-                {s.title}
-              </h3>
-              <p className="text-body-sm text-text-secondary text-pretty">
-                {s.body}
-              </p>
-            </li>
+          {procedureSteps.map((s, i) => (
+            <Reveal key={s.step} delay={i * 0.08} as="li">
+              <div className="h-full rounded-lg bg-surface border border-border p-5 md:p-6 flex flex-col gap-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-primary/30">
+                <span className="font-mono text-caption tracking-[0.15em] text-primary">
+                  {s.step}
+                </span>
+                <h3 className="font-display text-h4 font-medium text-text-primary text-balance">
+                  {s.title}
+                </h3>
+                <p className="text-body-sm text-text-secondary text-pretty">
+                  {s.body}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </ol>
       </Section>
@@ -417,7 +417,7 @@ export default function RoboticSurgeryPage() {
           </div>
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 rounded-md bg-accent hover:bg-accent-hover text-white px-6 py-4 font-medium shadow-lg transition-all duration-300 ease-smooth hover:-translate-y-0.5 flex-shrink-0"
+            className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent-hover text-text-primary px-7 py-4 font-semibold shadow-lg transition-all duration-300 ease-smooth hover:-translate-y-0.5 flex-shrink-0"
           >
             Book a Consultation
             <ArrowRight size={18} />

@@ -4,20 +4,20 @@
 
 :root {
   /* Brand */
-  --color-primary: #0F766E;
-  --color-primary-hover: #115E59;
-  --color-primary-soft: #CCFBF1;
+  --color-primary: #7C3AED;
+  --color-primary-hover: #5B21B6;
+  --color-primary-soft: #EDE9FE;
 
-  --color-accent: #C8954A;
-  --color-accent-hover: #B07D35;
-  --color-accent-soft: #FAEBC9;
+  --color-accent: #FACC15;
+  --color-accent-hover: #EAB308;
+  --color-accent-soft: #FEF3C7;
 
   /* Neutrals */
-  --color-bg: #FAFAF7;
+  --color-bg: #FAF8F3;
   --color-surface: #FFFFFF;
-  --color-surface-elevated: #F5F5F0;
-  --color-border: #E5E5E0;
-  --color-divider: #ECECE6;
+  --color-surface-elevated: #F5F4EE;
+  --color-border: #E5E3DB;
+  --color-divider: #ECEAE2;
 
   /* Text */
   --color-text-primary: #1A1A1A;
@@ -91,16 +91,16 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-body font-medium transition-all duration-300 ease-smooth;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-body font-semibold transition-all duration-300 ease-smooth;
     min-height: 48px;
   }
 
   .btn-primary {
-    @apply btn bg-accent text-white shadow-md hover:bg-accent-hover hover:shadow-lg hover:-translate-y-0.5;
+    @apply btn bg-primary text-white shadow-[0_8px_24px_rgba(124,58,237,0.28)] hover:bg-primary-hover hover:shadow-[0_12px_30px_rgba(124,58,237,0.35)] hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply btn border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white;
+    @apply btn border-[1.5px] border-text-primary text-text-primary bg-transparent hover:bg-text-primary hover:text-white;
   }
 
   .btn-ghost {

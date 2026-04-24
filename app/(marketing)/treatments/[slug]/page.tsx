@@ -316,7 +316,7 @@ export default async function TreatmentPage({ params }: Props) {
           </div>
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 rounded-md bg-accent hover:bg-accent-hover text-white px-6 py-4 font-medium shadow-lg transition-all duration-300 ease-smooth hover:-translate-y-0.5 flex-shrink-0"
+            className="inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent-hover text-text-primary px-7 py-4 font-semibold shadow-lg transition-all duration-300 ease-smooth hover:-translate-y-0.5 flex-shrink-0"
           >
             Book a Consultation
             <ArrowRight size={18} />

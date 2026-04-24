@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Target, Activity, Clock3 } from "lucide-react";
 import { Section } from "@/components/shared/section";
+import { Reveal } from "@/components/shared/reveal";
 import { DOCTOR } from "@/lib/constants";
 
 const highlights = [
@@ -23,7 +24,7 @@ export function RoboticShowcase() {
   return (
     <Section aria-labelledby="robotic-heading">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-        <div className="lg:col-span-6">
+        <Reveal className="lg:col-span-6">
           <span className="eyebrow">Robotic surgery</span>
           <h2
             id="robotic-heading"
@@ -60,9 +61,9 @@ export function RoboticShowcase() {
               <ArrowRight size={18} />
             </Link>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="lg:col-span-6">
+        <Reveal delay={0.15} className="lg:col-span-6">
           <div className="relative aspect-[4/5] md:aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-lg bg-gradient-to-br from-primary/10 to-primary-soft/40">
             <Image
               src="/images/doctor/robotic-velys.jpg"
@@ -76,7 +77,7 @@ export function RoboticShowcase() {
             Dr. Sahoo performs robotic-assisted procedures on Smith+Nephew and
             VELYS platforms at equipped partner hospitals in Bhubaneswar.
           </p>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );

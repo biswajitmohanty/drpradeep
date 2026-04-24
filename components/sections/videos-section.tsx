@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/shared/section";
 import { VideoCard } from "@/components/shared/video-card";
+import { Reveal } from "@/components/shared/reveal";
 
 const videos = [
   {
@@ -28,20 +29,24 @@ const CHANNEL_URL = "https://www.youtube.com/@Elite_Ortho_Care";
 export function VideosSection() {
   return (
     <Section aria-labelledby="videos-heading">
-      <h2
-        id="videos-heading"
-        className="text-center font-display text-h2 md:text-h1 font-semibold uppercase text-primary text-balance"
-      >
-        See our latest videos
-      </h2>
+      <Reveal>
+        <h2
+          id="videos-heading"
+          className="text-center font-display text-h2 md:text-h1 font-semibold uppercase text-primary text-balance"
+        >
+          See our latest videos
+        </h2>
+      </Reveal>
 
       <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-        {videos.map((v) => (
-          <VideoCard key={v.id} {...v} />
+        {videos.map((v, i) => (
+          <Reveal key={v.id} delay={i * 0.1}>
+            <VideoCard {...v} />
+          </Reveal>
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <Reveal delay={0.25} className="mt-10 flex justify-center">
         <a
           href={CHANNEL_URL}
           target="_blank"
@@ -51,7 +56,7 @@ export function VideosSection() {
           More Videos
           <ArrowRight size={18} />
         </a>
-      </div>
+      </Reveal>
     </Section>
   );
 }

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { StatNumber } from "@/components/shared/stat-number";
 import { cn } from "@/lib/utils";
 
 interface StatCardProps {
@@ -25,9 +26,10 @@ export function StatCard({ value, label, icon, className }: StatCardProps) {
           {icon}
         </span>
       ) : null}
-      <p className="font-display text-[2.25rem] md:text-[2.75rem] font-semibold text-text-primary tracking-tight leading-none">
-        {value}
-      </p>
+      <StatNumber
+        value={value}
+        className="font-display text-[2.25rem] md:text-[2.75rem] font-semibold text-text-primary tracking-tight leading-none"
+      />
       <p className="text-body-sm text-text-secondary font-medium">{label}</p>
     </div>
   );
